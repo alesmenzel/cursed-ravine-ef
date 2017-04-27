@@ -51,7 +51,7 @@ type aPLAYER = record
 	TowersCount: Byte;
 end;
 var PLAYER: array of aPLAYER;
-const TOWERSLIMIT = 20;
+{const TOWERSLIMIT = 20;}{zrušený limit na věže}
 
 // SCHOOLHOUSE
 procedure Recruits(var aPlayer: Integer);
