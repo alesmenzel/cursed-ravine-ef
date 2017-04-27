@@ -1,6 +1,6 @@
 !SET_MAP "data\mission\smaps\Cursed Ravine [EF] 1.5.map"
 !SET_MAX_PLAYER 8
-!SET_HUMAN_PLAYER 0
+!SET_HUMAN_PLAYER 8
 
 !SET_CURR_PLAYER 0
 !ENABLE_PLAYER 0
