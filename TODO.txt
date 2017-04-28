@@ -1,3 +1,4 @@
 ﻿* remove players 9-12
 * add song after pecetime
 * create new pdf file
+* counting killed unit (specia)
