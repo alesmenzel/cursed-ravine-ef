@@ -174,7 +174,7 @@ aiHouses: array of Integer;
 text: String;
 begin
 	SetLength(PLAYER, States.LocationCount);
-	for aPlayer := 0 to States.LocationCount-1 do if States.PlayerEnabled(aPlayer) then begin
+	for aPlayer := 0 to States.LocationCount-5 do if States.PlayerEnabled(aPlayer) then begin
 		aiHouses := States.PlayerGetAllHouses(aPlayer);
 		for i := 0 to Length(aiHouses)-1 do begin
 			if (States.HouseType(aiHouses[i]) = 13) and States.HouseIsComplete(aiHouses[i]) then AddHouse(aiHouses[i], PLAYER[aPlayer].Buildings.Schools)
