@@ -1,6 +1,7 @@
 # cursed-ravine-ef
 FOR PLAYERS
 * See the Wiki.
+https://github.com/AlesMenzel/cursed-ravine-ef/wiki
 
 FOR DEVELOPERS
 * remove players 9-12
