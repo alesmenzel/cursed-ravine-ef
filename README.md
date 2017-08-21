@@ -1,5 +1,8 @@
 # cursed-ravine-ef
-WHAT TO DO
+FOR PLAYERS
+See the Wiki.
+
+FOR DEVELOPERS
 * remove players 9-12
 * add song after peacetime
 * create new pdf file
