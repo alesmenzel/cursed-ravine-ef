@@ -11,8 +11,8 @@ GENERAL TO DO
 * Translate comments to english in script.
 
 SPECIAL TO DO
-* Special units.
-** Add clecer way to produce special units.
-** Counting killed unit (special)
-** Show what it costs
-** Allow pruduce if you have not resources for original units
+* Special units
+a) Add clecer way to produce special units.
+* Counting killed unit (special)
+* Show what it costs
+* Allow pruduce if you have not resources for original units
