@@ -1,6 +1,6 @@
 # cursed-ravine-ef
 FOR PLAYERS
-See the Wiki.
+* See the Wiki.
 
 FOR DEVELOPERS
 * remove players 9-12
