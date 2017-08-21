@@ -4,11 +4,15 @@ FOR PLAYERS
 https://github.com/AlesMenzel/cursed-ravine-ef/wiki
 
 FOR DEVELOPERS
+
+GENERAL TO DO
 * remove players 9-12
 * add song after peacetime
-* create new pdf file
-* counting killed unit (special)
-* fix pruducing special unit
-** show what it costs
-** allow pruduce if you have not resources for original units
-* Translate comments to the English
+* Translate comments to english in script.
+
+SPECIAL TO DO
+* Special units.
+** Add clecer way to produce special units.
+** Counting killed unit (special)
+** Show what it costs
+** Allow pruduce if you have not resources for original units
