@@ -2,6 +2,13 @@
 ## FOR PLAYERS
 See the Wiki.
 https://github.com/AlesMenzel/cursed-ravine-ef/wiki
+### Why play this map?
+* There are new entrances where you can mine stones and expand to the center of the map.
+* After defeated of player all his building are destroyed.
+* After you win all map is explered.
+* You can trade stufff between players.
+* Balanced terrain to make better experience from playing.
+* Automatic train recruit in the school.
 
 ***
 ## FOR DEVELOPERS
