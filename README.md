@@ -7,7 +7,6 @@ https://github.com/AlesMenzel/cursed-ravine-ef/wiki
 ## FOR DEVELOPERS
 
 ### GENERAL TO DO
-* Remove players 9-12.
 * Add song after peacetime.
 * Translate comments to english in script.
 
