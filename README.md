@@ -13,7 +13,7 @@ https://github.com/AlesMenzel/cursed-ravine-ef/wiki
 ### SPECIAL TO DO
 
 **Special units**
-* Add clecer way to produce special units.
+* Add clever way to produce special units.
 * Counting killed unit (special)
 * Show what it costs
 * Allow pruduce if you have not resources for original units
