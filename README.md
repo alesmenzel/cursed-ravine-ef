@@ -16,6 +16,7 @@ https://github.com/AlesMenzel/cursed-ravine-ef/wiki
 ### GENERAL TO DO
 * Add song after peacetime.
 * Translate comments to english in script.
+* Block walking before peacetime to prevent some players to discover others.
 
 ### SPECIAL TO DO
 
@@ -24,3 +25,6 @@ https://github.com/AlesMenzel/cursed-ravine-ef/wiki
 * Counting killed unit (special)
 * Show what it costs
 * Allow pruduce if you have not resources for original units
+
+**Defense lines**
+* Create healing area on the first defense lines to heal defenders if they stay on some of point.
