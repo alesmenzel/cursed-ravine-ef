@@ -1,0 +1,196 @@
+{
+☢☢☢☢☢☢☢☢☢☢☢☢☢☢☢☢☢☢☢☢☢☢☢☢☢☢☢☢☢☢☢☢☢☢☢☢☢☢☢☢☢
+Ales's & Postmortem's scripts
+❤ Zničení budov po prohře.
+❤ Odkrytí mapy po výhře.
+☢☢☢☢☢☢☢☢☢☢☢☢☢☢☢☢☢☢☢☢☢☢☢☢☢☢☢☢☢☢☢☢☢☢☢☢☢☢☢☢☢
+}
+
+// ZNIČENÍ BUDOV PO PROHŘE
+// Specifikace procedur a proměnných.
+procedure ArrayLoop(allhouses: Array of Integer);
+var
+	i: Integer;
+
+// Zničí všechny budovy.
+begin
+	for i := 0 to Length(allhouses) - 1 do
+	begin
+		Actions.HouseDestroy(allhouses[i], False);
+	end;
+end;
+
+// Pokud hráč prohraje, tak vytvoří výpis všech budov, které mají být zničeny.
+procedure OnPlayerDefeated(aPlayer: Integer);
+begin
+	ArrayLoop(States.PlayerGetAllHouses(aPlayer));
+end;
+
+// ODKRYTÍ MAPY PO VÝHŘE
+procedure OnPlayerVictory (aPlayer: Integer);
+begin
+	Actions.FogRevealAll(aPlayer);
+end;
+
+{
+☢☢☢☢☢☢☢☢☢☢☢☢☢☢☢☢☢☢☢☢☢☢☢☢☢☢☢☢☢☢☢☢☢☢☢☢☢☢☢☢☢
+Toxic's scripts
+❤ Automatická tvorba jednotek ve škole
+❤ Posílání surovin přes tržiště.
+❤ Informace o stavu armády a zabití.
+☢☢☢☢☢☢☢☢☢☢☢☢☢☢☢☢☢☢☢☢☢☢☢☢☢☢☢☢☢☢☢☢☢☢☢☢☢☢☢☢☢
+}
+
+// DECLARATION:
+type aBuildings = record
+	Schools: array of Integer;
+	Markets: array of Integer;
+end;
+type aPLAYER = record
+	Buildings: aBuildings;
+	TowersCount: Byte;
+end;
+var PLAYER: array of aPLAYER;
+{const TOWERSLIMIT = 20;}{zrušený limit na věže}
+
+// SCHOOLHOUSE
+procedure Recruits(var aPlayer: Integer);
+var i: Integer;
+begin			
+	for i := 0 to Length(PLAYER[aPlayer].Buildings.Schools)-1 do
+		if States.HouseRepair(PLAYER[aPlayer].Buildings.Schools[i]) and (States.HouseResourceAmount(PLAYER[aPlayer].Buildings.Schools[i], 7) > 0) and (States.HouseSchoolQueue(PLAYER[aPlayer].Buildings.Schools[i], 0) = - 1) then
+			Actions.HouseSchoolQueueAdd(PLAYER[aPlayer].Buildings.Schools[i], 13, 1);
+end;
+
+procedure AddHouse(aHouse: Integer; var Houses: array of Integer);
+begin
+	SetLength(Houses, Length(Houses)+1);
+	Houses[High(Houses)] := aHouse;
+end;
+
+procedure RemoveHouse(aHouse: Integer; var Houses: array of Integer);
+var i: Integer;
+begin
+	for i := 0 to Length(Houses)-1 do if (Houses[i] = aHouse) then break;
+	Houses[i] := Houses[High(Houses)];
+	SetLength(Houses, Length(Houses)-1);
+end;
+
+// CARAVAN
+procedure Transaction(ID, recipient, aFrom, aTo, countAdd, countRemove: Integer);
+begin
+	Actions.GiveWares(recipient,aFrom,countAdd);
+	Actions.HouseTakeWaresFrom(ID,aTo,countRemove);
+end;
+
+procedure Caravan(ID, aFrom, aTo: Integer);
+var recipient, aPlayer: Integer;
+TradeRatio: Double;
+begin
+	aPlayer := States.HouseOwner(ID);
+	if aFrom < aTo then recipient := aTo-1
+	else recipient := aTo;
+	if (recipient < 8) AND (States.PlayerAllianceCheck(aPlayer, recipient)) then begin
+		TradeRatio := ((States.MarketValue(aFrom))/(States.MarketValue(aTo)*States.MarketLossFactor));
+		if TradeRatio < 1 then Transaction(ID, recipient, aFrom, aTo, Round(1/TradeRatio), 1)
+		else Transaction(ID, recipient, aFrom, aTo, 1, Round(TradeRatio));
+	end else begin
+		//Actions.HouseRepairEnable(ID,False);
+		Actions.MarketSetTrade(ID, aFrom, aTo, 0);
+		Actions.PlayWAV(aPlayer, 'wCant', 1);
+	end;
+end;
+
+
+// STATISTIC
+procedure updateOverlay();
+var i, j, aPlayer, teamPlayer, sumKill, recipient, aFrom, aTo, count, line: Integer;
+aString: String;
+PL: array of Boolean;
+tradeRatio: Double;
+begin
+	SetLength(PL,States.LocationCount);
+	Actions.OverlayTextSet(-1, '');
+	for aPlayer := 0 to Length(PL)-1 do begin
+		if PL[aPlayer] OR not States.PlayerEnabled(aPlayer) then continue;
+		for teamPlayer := 0 to Length(PL)-1 do if States.PlayerEnabled(teamPlayer) and States.PlayerAllianceCheck(teamPlayer, aPlayer) then begin
+			PL[teamPlayer] := True;
+			sumKill := 0;
+			for i := 14 to 26 do sumKill := sumKill + States.StatUnitKilledCount(teamPlayer,i);
+			for j := 0 to Length(PL)-1 do if States.PlayerEnabled(j) and States.PlayerAllianceCheck(j, aPlayer) then
+				Actions.OverlayTextAppendFormatted(j, aString+'|[$%s]%s[] -> kills: [$B9B9FF]%d[]; units: [$BBFFB9]%d[]', [States.PlayerColorText(teamPlayer), States.PlayerName(teamPlayer), sumKill, States.StatArmyCount(teamPlayer)]);
+			for i := 0 to Length(PLAYER[teamPlayer].Buildings.Markets)-1 do if States.HouseRepair(PLAYER[teamPlayer].Buildings.Markets[i]) then begin
+				count := States.MarketOrderAmount(PLAYER[teamPlayer].Buildings.Markets[i]);
+				if count > 0 then begin
+					aFrom := States.MarketFromWare(PLAYER[teamPlayer].Buildings.Markets[i]);
+					aTo := States.MarketToWare(PLAYER[teamPlayer].Buildings.Markets[i]);
+					tradeRatio := States.MarketValue(aTo)*States.MarketLossFactor/States.MarketValue(aFrom);
+					if tradeRatio >= 1.5 then count := count*Round(States.MarketValue(aTo)*States.MarketLossFactor/States.MarketValue(aFrom));
+					if aFrom < aTo then recipient := aTo-1
+					else recipient := aTo;
+					line := line+1;
+					if (recipient < 8) AND (States.PlayerEnabled(recipient)) AND (States.PlayerAllianceCheck(aPlayer, recipient)) then begin
+						for j := 0 to Length(PL)-1 do if States.PlayerEnabled(j) and States.PlayerAllianceCheck(j, aPlayer) then begin
+							if (line = 1) then Actions.OverlayTextAppend(j,'|   ');
+							Actions.OverlayTextAppendFormatted(j, ' [$FFDFD1]%d[]x %s -> [$%s]%s[];', [count,States.WareTypeName(aFrom),States.PlayerColorText(recipient),States.PlayerName(recipient)])
+						end;
+					end else begin
+						//Actions.HouseRepairEnable(PLAYER[teamPlayer].Buildings.Markets[i],False);
+						Actions.MarketSetTrade(PLAYER[teamPlayer].Buildings.Markets[i], aFrom, aTo, 0);
+						Actions.PlayWAV(teamPlayer, 'wCant', 1);
+					end;
+				end;
+			end;
+			line := 0;
+		end;
+	end;
+end;
+
+// EVENTS
+procedure OnHouseBuilt(aHouse: Integer);
+begin
+	if not States.PlayerIsAI(States.HouseOwner(aHouse)) then begin
+		if States.HouseType(aHouse) = 13 then AddHouse(aHouse, PLAYER[States.HouseOwner(aHouse)].Buildings.Schools)
+		else if States.HouseType(aHouse) = 29 then AddHouse(aHouse, PLAYER[States.HouseOwner(aHouse)].Buildings.Markets);
+	end;
+end;
+
+procedure OnHouseDestroyed(aHouse, aDestroyerIndex: Integer);
+begin
+	if (States.HouseIsComplete(aHouse)) AND not States.PlayerIsAI(States.HouseOwner(aHouse)) then begin
+		if States.HouseType(aHouse) = 13 then RemoveHouse(aHouse, PLAYER[States.HouseOwner(aHouse)].Buildings.Schools)
+		else if States.HouseType(aHouse) = 29 then RemoveHouse(aHouse, PLAYER[States.HouseOwner(aHouse)].Buildings.Markets);
+	end;
+end;
+
+procedure OnMarketTrade(aMarket: Integer; aFrom: Integer; TWareType: Integer);
+begin
+	if States.HouseRepair(aMarket) then Caravan(aMarket, aFrom, TWareType);
+end;
+
+procedure OnMissionStart;
+var aPlayer, i: Integer;
+aiHouses: array of Integer;
+text: String;
+begin
+	SetLength(PLAYER, States.LocationCount);
+	for aPlayer := 0 to States.LocationCount-5 do if States.PlayerEnabled(aPlayer) then begin
+		aiHouses := States.PlayerGetAllHouses(aPlayer);
+		for i := 0 to Length(aiHouses)-1 do begin
+			if (States.HouseType(aiHouses[i]) = 13) and States.HouseIsComplete(aiHouses[i]) then AddHouse(aiHouses[i], PLAYER[aPlayer].Buildings.Schools)
+			else if (States.HouseType(aiHouses[i]) = 29) and States.HouseIsComplete(aiHouses[i]) then AddHouse(aiHouses[i], PLAYER[aPlayer].Buildings.Markets)
+		end;
+		text := text + '[$'+ States.PlayerColorText(aPlayer)+']'+States.PlayerName(aPlayer)+'[] = [$B9B9FF]'+States.WareTypeName(aPlayer)+'[] ([$E9E9FF]'+States.WareTypeName(aPlayer+1)+'[])|';
+	end;
+	Actions.ShowMSG(-1, text);
+end;
+
+
+procedure OnTick;
+var aPlayer: Integer;
+begin
+	if (States.GameTime mod 20) = 0 then updateOverlay(); // Statistics
+	aPlayer := States.GameTime mod States.LocationCount;
+	if States.PlayerEnabled(aPlayer) then
+		if not States.PlayerIsAI(aPlayer) then Recruits(aPlayer); // Schoolhouse
+end;
