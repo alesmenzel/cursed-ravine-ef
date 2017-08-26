@@ -28,3 +28,6 @@ https://github.com/AlesMenzel/cursed-ravine-ef/wiki
 
 **Defense lines**
 * Create healing area on the first defense lines to heal defenders if they stay on some of point.
+
+**Trading stuffs**
+* Create chat condition script to send stuff to another player. Example: 30 gold to 2 = add 30 golds to player 2 and remove (if exists or not) to player who typed it.
