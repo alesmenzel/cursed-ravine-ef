@@ -33,3 +33,6 @@ https://github.com/AlesMenzel/cursed-ravine-ef/wiki
 
 **Trading stuffs**
 * Create chat condition script to send stuff to another player. Example: 30 gold to 2 = add 30 golds to player 2 and remove (if exists or not) to player who typed it.
+
+**Sounds**
+* Create sounds after some events (for exapl, you kill 100 enemies = "You are kileeeer!")
