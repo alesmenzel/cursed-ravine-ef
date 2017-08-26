@@ -17,6 +17,8 @@ https://github.com/AlesMenzel/cursed-ravine-ef/wiki
 * Add song after peacetime.
 * Translate comments to english in script.
 * Block walking before peacetime to prevent some players to discover others.
+* Reapair resources to be same.
+* Change victory = store + castle + school.
 
 ### SPECIAL TO DO
 
