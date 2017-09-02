@@ -1,0 +1,488 @@
+var aPlayer, aUnitID, aHouseID: Integer;
+var aText, LOGS_send: AnsiString;
+
+// TRADING
+procedure TradeStuffLU(TPlayer, SPlayer, SStuff, TXstore, TYstore: Integer; Tinfo: AnsiString);
+begin
+	aHouseID := States.HouseAt(TXstore,TYstore); // 1st Store
+	if States.HouseResourceAmount(aHouseID, SStuff) < 5 then // Stop the script if there is no stuff.
+	Exit;
+	 	if (States.HouseOwner((aHouseID)) = TPlayer)
+		and (States.GameTime mod 100 = 0) then
+			begin
+				Actions.HouseTakeWaresFrom(aHouseID, SStuff, 1); // aHouseID aType aCount
+				Actions.OverlayTextSet(TPlayer, Tinfo);
+				Actions.GiveWares(SPlayer, SStuff, 1); // aPlayer aType aCount
+			end;
+end;
+
+procedure LoopPlayer12(aPlayer: Integer);
+var aStuff1, aPlayer1, aXstore1, aYstore1, aXLine1, aXLine2, aYLine1, aYLine2, aYLine3, aYLine4, aXMarketStore, aYMarketStore: Integer;
+var aStuff1Type, aPlayerName1: AnsiString;
+//var PlayerName: Byte;
+
+begin
+	// Player 1, 2 --> sending stuff
+	aStuff1 := -1;
+	aPlayer1 := -1;
+	aPlayerName1 := 'noone';
+
+	if aPlayer = 0 then aXLine1 := 1;
+	if aPlayer = 0 then aXLine2 := 4;
+	if aPlayer = 0 then aYLine1 := 7;
+	if aPlayer = 0 then aYLine2 := 10;
+	if aPlayer = 0 then aYLine3 := 13;
+	if aPlayer = 0 then aYLine4 := 16;
+	if aPlayer = 0 then aXMarketStore := 3;
+	if aPlayer = 0 then aYMarketStore := 3;
+
+	if aPlayer = 1 then aXLine1 := 1;
+	if aPlayer = 1 then aXLine2 := 4;
+	if aPlayer = 1 then aYLine1 := 7;
+	if aPlayer = 1 then aYLine2 := 10;
+	if aPlayer = 1 then aYLine3 := 13;
+	if aPlayer = 1 then aYLine4 := 16;
+	if aPlayer = 1 then aXMarketStore := 3;
+	if aPlayer = 1 then aYMarketStore := 19;
+
+	if States.UnitType(States.UnitAt(aXLine1,aYLine1)) = 24 then aPlayer1 := 0;
+		if aPlayer1 = 0 then aPlayerName1 := States.PlayerName(aPlayer1);
+	if States.UnitType(States.UnitAt(aXLine1,aYLine2)) = 24 then aPlayer1 := 1;
+		if aPlayer1 = 1 then aPlayerName1 := States.PlayerName(aPlayer1);
+	if States.UnitType(States.UnitAt(aXLine1,aYLine3)) = 24 then aPlayer1 := 2;
+		if aPlayer1 = 2 then aPlayerName1 := States.PlayerName(aPlayer1);
+	if States.UnitType(States.UnitAt(aXLine1,aYLine4)) = 24 then aPlayer1 := 3;
+		if aPlayer1 = 3 then aPlayerName1 := States.PlayerName(aPlayer1);
+	if States.UnitType(States.UnitAt(aXLine2,aYLine1)) = 24 then aPlayer1 := 4;
+		if aPlayer1 = 4 then aPlayerName1 := States.PlayerName(aPlayer1);
+	if States.UnitType(States.UnitAt(aXLine2,aYLine2)) = 24 then aPlayer1 := 5;
+		if aPlayer1 = 5 then aPlayerName1 := States.PlayerName(aPlayer1);
+	if States.UnitType(States.UnitAt(aXLine2,aYLine3)) = 24 then aPlayer1 := 6;
+		if aPlayer1 = 6 then aPlayerName1 := States.PlayerName(aPlayer1);
+	if States.UnitType(States.UnitAt(aXLine2,aYLine4)) = 24 then aPlayer1 := 7;
+		if aPlayer1 = 7 then aPlayerName1 := States.PlayerName(aPlayer1);
+
+		if aPlayer1 = -1 then
+			Exit;
+
+	if (States.HouseWareBlocked((States.HouseAt(aXMarketStore,aYMarketStore)),0)) = true then aStuff1 := 0; 
+		if aStuff1 = 0 then aStuff1Type := '1x Tree Trunk';
+	if (States.HouseWareBlocked((States.HouseAt(aXMarketStore,aYMarketStore)),1)) = true then aStuff1 := 1; 
+		if aStuff1 = 1 then aStuff1Type := '1x Stone';
+	if (States.HouseWareBlocked((States.HouseAt(aXMarketStore,aYMarketStore)),2)) = true then aStuff1 := 2;
+		if aStuff1 = 2 then aStuff1Type := '1x Timber';
+	if (States.HouseWareBlocked((States.HouseAt(aXMarketStore,aYMarketStore)),3)) = true then aStuff1 := 3;
+		if aStuff1 = 3 then aStuff1Type := '1x Iron ore';
+	if (States.HouseWareBlocked((States.HouseAt(aXMarketStore,aYMarketStore)),4)) = true then aStuff1 := 4;
+		if aStuff1 = 4 then aStuff1Type := '1x Gold ore';
+	if (States.HouseWareBlocked((States.HouseAt(aXMarketStore,aYMarketStore)),5)) = true then aStuff1 := 5;
+		if aStuff1 = 5 then aStuff1Type := '1x Coal';
+	if (States.HouseWareBlocked((States.HouseAt(aXMarketStore,aYMarketStore)),6)) = true then aStuff1 := 6;
+		if aStuff1 = 6 then aStuff1Type := '1x Iron';
+	if (States.HouseWareBlocked((States.HouseAt(aXMarketStore,aYMarketStore)),7)) = true then aStuff1 := 7;
+		if aStuff1 = 7 then aStuff1Type := '1x Gold';
+	if (States.HouseWareBlocked((States.HouseAt(aXMarketStore,aYMarketStore)),8)) = true then aStuff1 := 8;
+		if aStuff1 = 8 then aStuff1Type := '1x Wine Barrel';
+	if (States.HouseWareBlocked((States.HouseAt(aXMarketStore,aYMarketStore)),9)) = true then aStuff1 := 9;
+		if aStuff1 = 9 then aStuff1Type := '1x Corn';
+	if (States.HouseWareBlocked((States.HouseAt(aXMarketStore,aYMarketStore)),10)) = true then aStuff1 := 10;
+		if aStuff1 = 10 then aStuff1Type := '1x Loaves';
+	if (States.HouseWareBlocked((States.HouseAt(aXMarketStore,aYMarketStore)),11)) = true then aStuff1 := 11;
+		if aStuff1 = 11 then aStuff1Type := '1x Flour';
+	if (States.HouseWareBlocked((States.HouseAt(aXMarketStore,aYMarketStore)),12)) = true then aStuff1 := 12;
+		if aStuff1 = 12 then aStuff1Type := '1x Leather';
+	if (States.HouseWareBlocked((States.HouseAt(aXMarketStore,aYMarketStore)),13)) = true then aStuff1 := 13;
+		if aStuff1 = 13 then aStuff1Type := '1x Sausage';
+	if (States.HouseWareBlocked((States.HouseAt(aXMarketStore,aYMarketStore)),14)) = true then aStuff1 := 14;
+		if aStuff1 = 14 then aStuff1Type := '1x Pig';
+	if (States.HouseWareBlocked((States.HouseAt(aXMarketStore,aYMarketStore)),15)) = true then aStuff1 := 15;
+		if aStuff1 = 15 then aStuff1Type := '1x Skins';
+	if (States.HouseWareBlocked((States.HouseAt(aXMarketStore,aYMarketStore)),27)) = true then aStuff1 := 27;
+		if aStuff1 = 27 then aStuff1Type := '1x Fish';
+
+	if aPlayer = 0 then aXstore1 := 41;
+	if aPlayer = 0 then aYstore1 := 66;
+
+	if aPlayer = 1 then aXstore1 := 48;
+	if aPlayer = 1 then aYstore1 := 108;
+
+	if aPlayer = 2 then aXstore1 := 47;
+	if aPlayer = 2 then aYstore1 := 159;
+
+	if aPlayer = 3 then aXstore1 := 54;
+	if aPlayer = 3 then aYstore1 := 199;
+
+	if aPlayer = 4 then aXstore1 := 196;
+	if aPlayer = 4 then aYstore1 := 67;
+
+	if aPlayer = 5 then aXstore1 := 184;
+	if aPlayer = 5 then aYstore1 := 104;
+
+	if aPlayer = 6 then aXstore1 := 198;
+	if aPlayer = 6 then aYstore1 := 151;
+
+	if aPlayer = 7 then aXstore1 := 211;
+	if aPlayer = 7 then aYstore1 := 188;
+
+		TradeStuffLU(aPlayer,aPlayer1,aStuff1,aXstore1,aYstore1,aStuff1Type + ' is sending every 10 s to ' + aPlayerName1 + '.');
+end;
+
+procedure LoopPlayer34(aPlayer: Integer);
+var aStuff1, aPlayer1, aXstore1, aYstore1, aXLine1, aXLine2, aYLine1, aYLine2, aYLine3, aYLine4, aXMarketStore, aYMarketStore: Integer;
+var aStuff1Type, aPlayerName1: AnsiString;
+//var PlayerName: Byte;
+
+begin
+	// Player 3, 4 --> sending stuff
+	aStuff1 := -1;
+	aPlayer1 := -1;
+	aPlayerName1 := 'noone';
+
+	if aPlayer = 2 then aXLine1 := 8;
+	if aPlayer = 2 then aXLine2 := 11;
+	if aPlayer = 2 then aYLine1 := 7;
+	if aPlayer = 2 then aYLine2 := 10;
+	if aPlayer = 2 then aYLine3 := 13;
+	if aPlayer = 2 then aYLine4 := 16;
+	if aPlayer = 2 then aXMarketStore := 9;
+	if aPlayer = 2 then aYMarketStore := 3;
+
+	if aPlayer = 3 then aXLine1 := 8;
+	if aPlayer = 3 then aXLine2 := 11;
+	if aPlayer = 3 then aYLine1 := 7;
+	if aPlayer = 3 then aYLine2 := 10;
+	if aPlayer = 3 then aYLine3 := 13;
+	if aPlayer = 3 then aYLine4 := 16;
+	if aPlayer = 3 then aXMarketStore := 9;
+	if aPlayer = 3 then aYMarketStore := 19;
+
+	if States.UnitType(States.UnitAt(aXLine1,aYLine1)) = 24 then aPlayer1 := 0;
+		if aPlayer1 = 0 then aPlayerName1 := States.PlayerName(aPlayer1);
+	if States.UnitType(States.UnitAt(aXLine1,aYLine2)) = 24 then aPlayer1 := 1;
+		if aPlayer1 = 1 then aPlayerName1 := States.PlayerName(aPlayer1);
+	if States.UnitType(States.UnitAt(aXLine1,aYLine3)) = 24 then aPlayer1 := 2;
+		if aPlayer1 = 2 then aPlayerName1 := States.PlayerName(aPlayer1);
+	if States.UnitType(States.UnitAt(aXLine1,aYLine4)) = 24 then aPlayer1 := 3;
+		if aPlayer1 = 3 then aPlayerName1 := States.PlayerName(aPlayer1);
+	if States.UnitType(States.UnitAt(aXLine2,aYLine1)) = 24 then aPlayer1 := 4;
+		if aPlayer1 = 4 then aPlayerName1 := States.PlayerName(aPlayer1);
+	if States.UnitType(States.UnitAt(aXLine2,aYLine2)) = 24 then aPlayer1 := 5;
+		if aPlayer1 = 5 then aPlayerName1 := States.PlayerName(aPlayer1);
+	if States.UnitType(States.UnitAt(aXLine2,aYLine3)) = 24 then aPlayer1 := 6;
+		if aPlayer1 = 6 then aPlayerName1 := States.PlayerName(aPlayer1);
+	if States.UnitType(States.UnitAt(aXLine2,aYLine4)) = 24 then aPlayer1 := 7;
+		if aPlayer1 = 7 then aPlayerName1 := States.PlayerName(aPlayer1);
+
+		if aPlayer1 = -1 then
+			Exit;
+
+	if (States.HouseWareBlocked((States.HouseAt(aXMarketStore,aYMarketStore)),0)) = true then aStuff1 := 0; 
+		if aStuff1 = 0 then aStuff1Type := '1x Tree Trunk';
+	if (States.HouseWareBlocked((States.HouseAt(aXMarketStore,aYMarketStore)),1)) = true then aStuff1 := 1; 
+		if aStuff1 = 1 then aStuff1Type := '1x Stone';
+	if (States.HouseWareBlocked((States.HouseAt(aXMarketStore,aYMarketStore)),2)) = true then aStuff1 := 2;
+		if aStuff1 = 2 then aStuff1Type := '1x Timber';
+	if (States.HouseWareBlocked((States.HouseAt(aXMarketStore,aYMarketStore)),3)) = true then aStuff1 := 3;
+		if aStuff1 = 3 then aStuff1Type := '1x Iron ore';
+	if (States.HouseWareBlocked((States.HouseAt(aXMarketStore,aYMarketStore)),4)) = true then aStuff1 := 4;
+		if aStuff1 = 4 then aStuff1Type := '1x Gold ore';
+	if (States.HouseWareBlocked((States.HouseAt(aXMarketStore,aYMarketStore)),5)) = true then aStuff1 := 5;
+		if aStuff1 = 5 then aStuff1Type := '1x Coal';
+	if (States.HouseWareBlocked((States.HouseAt(aXMarketStore,aYMarketStore)),6)) = true then aStuff1 := 6;
+		if aStuff1 = 6 then aStuff1Type := '1x Iron';
+	if (States.HouseWareBlocked((States.HouseAt(aXMarketStore,aYMarketStore)),7)) = true then aStuff1 := 7;
+		if aStuff1 = 7 then aStuff1Type := '1x Gold';
+	if (States.HouseWareBlocked((States.HouseAt(aXMarketStore,aYMarketStore)),8)) = true then aStuff1 := 8;
+		if aStuff1 = 8 then aStuff1Type := '1x Wine Barrel';
+	if (States.HouseWareBlocked((States.HouseAt(aXMarketStore,aYMarketStore)),9)) = true then aStuff1 := 9;
+		if aStuff1 = 9 then aStuff1Type := '1x Corn';
+	if (States.HouseWareBlocked((States.HouseAt(aXMarketStore,aYMarketStore)),10)) = true then aStuff1 := 10;
+		if aStuff1 = 10 then aStuff1Type := '1x Loaves';
+	if (States.HouseWareBlocked((States.HouseAt(aXMarketStore,aYMarketStore)),11)) = true then aStuff1 := 11;
+		if aStuff1 = 11 then aStuff1Type := '1x Flour';
+	if (States.HouseWareBlocked((States.HouseAt(aXMarketStore,aYMarketStore)),12)) = true then aStuff1 := 12;
+		if aStuff1 = 12 then aStuff1Type := '1x Leather';
+	if (States.HouseWareBlocked((States.HouseAt(aXMarketStore,aYMarketStore)),13)) = true then aStuff1 := 13;
+		if aStuff1 = 13 then aStuff1Type := '1x Sausage';
+	if (States.HouseWareBlocked((States.HouseAt(aXMarketStore,aYMarketStore)),14)) = true then aStuff1 := 14;
+		if aStuff1 = 14 then aStuff1Type := '1x Pig';
+	if (States.HouseWareBlocked((States.HouseAt(aXMarketStore,aYMarketStore)),15)) = true then aStuff1 := 15;
+		if aStuff1 = 15 then aStuff1Type := '1x Skins';
+	if (States.HouseWareBlocked((States.HouseAt(aXMarketStore,aYMarketStore)),27)) = true then aStuff1 := 27;
+		if aStuff1 = 27 then aStuff1Type := '1x Fish';
+
+	if aPlayer = 0 then aXstore1 := 41;
+	if aPlayer = 0 then aYstore1 := 66;
+
+	if aPlayer = 1 then aXstore1 := 48;
+	if aPlayer = 1 then aYstore1 := 108;
+
+	if aPlayer = 2 then aXstore1 := 47;
+	if aPlayer = 2 then aYstore1 := 159;
+
+	if aPlayer = 3 then aXstore1 := 54;
+	if aPlayer = 3 then aYstore1 := 199;
+
+	if aPlayer = 4 then aXstore1 := 196;
+	if aPlayer = 4 then aYstore1 := 67;
+
+	if aPlayer = 5 then aXstore1 := 184;
+	if aPlayer = 5 then aYstore1 := 104;
+
+	if aPlayer = 6 then aXstore1 := 198;
+	if aPlayer = 6 then aYstore1 := 151;
+
+	if aPlayer = 7 then aXstore1 := 211;
+	if aPlayer = 7 then aYstore1 := 188;
+
+		TradeStuffLU(aPlayer,aPlayer1,aStuff1,aXstore1,aYstore1,aStuff1Type + ' is sended from 1st store to ' + aPlayerName1 + ' every 10s.');
+end;
+
+procedure LoopPlayer56(aPlayer: Integer);
+var aStuff1, aPlayer1, aXstore1, aYstore1, aXLine1, aXLine2, aYLine1, aYLine2, aYLine3, aYLine4, aXMarketStore, aYMarketStore: Integer;
+var aStuff1Type, aPlayerName1: AnsiString;
+//var PlayerName: Byte;
+
+begin
+	// Player 5, 6 --> sending stuff
+	aStuff1 := -1;
+	aPlayer1 := -1;
+	aPlayerName1 := 'noone';
+
+	if aPlayer = 4 then aXLine1 := 15;
+	if aPlayer = 4 then aXLine2 := 18;
+	if aPlayer = 4 then aYLine1 := 7;
+	if aPlayer = 4 then aYLine2 := 10;
+	if aPlayer = 4 then aYLine3 := 13;
+	if aPlayer = 4 then aYLine4 := 16;
+	if aPlayer = 4 then aXMarketStore := 16;
+	if aPlayer = 4 then aYMarketStore := 3;
+
+	if aPlayer = 5 then aXLine1 := 15;
+	if aPlayer = 5 then aXLine2 := 18;
+	if aPlayer = 5 then aYLine1 := 7;
+	if aPlayer = 5 then aYLine2 := 10;
+	if aPlayer = 5 then aYLine3 := 13;
+	if aPlayer = 5 then aYLine4 := 16;
+	if aPlayer = 5 then aXMarketStore := 16;
+	if aPlayer = 5 then aYMarketStore := 19;
+
+	if States.UnitType(States.UnitAt(aXLine1,aYLine1)) = 24 then aPlayer1 := 0;
+		if aPlayer1 = 0 then aPlayerName1 := States.PlayerName(aPlayer1);
+	if States.UnitType(States.UnitAt(aXLine1,aYLine2)) = 24 then aPlayer1 := 1;
+		if aPlayer1 = 1 then aPlayerName1 := States.PlayerName(aPlayer1);
+	if States.UnitType(States.UnitAt(aXLine1,aYLine3)) = 24 then aPlayer1 := 2;
+		if aPlayer1 = 2 then aPlayerName1 := States.PlayerName(aPlayer1);
+	if States.UnitType(States.UnitAt(aXLine1,aYLine4)) = 24 then aPlayer1 := 3;
+		if aPlayer1 = 3 then aPlayerName1 := States.PlayerName(aPlayer1);
+	if States.UnitType(States.UnitAt(aXLine2,aYLine1)) = 24 then aPlayer1 := 4;
+		if aPlayer1 = 4 then aPlayerName1 := States.PlayerName(aPlayer1);
+	if States.UnitType(States.UnitAt(aXLine2,aYLine2)) = 24 then aPlayer1 := 5;
+		if aPlayer1 = 5 then aPlayerName1 := States.PlayerName(aPlayer1);
+	if States.UnitType(States.UnitAt(aXLine2,aYLine3)) = 24 then aPlayer1 := 6;
+		if aPlayer1 = 6 then aPlayerName1 := States.PlayerName(aPlayer1);
+	if States.UnitType(States.UnitAt(aXLine2,aYLine4)) = 24 then aPlayer1 := 7;
+		if aPlayer1 = 7 then aPlayerName1 := States.PlayerName(aPlayer1);
+
+		if aPlayer1 = -1 then
+			Exit;
+
+	if (States.HouseWareBlocked((States.HouseAt(aXMarketStore,aYMarketStore)),0)) = true then aStuff1 := 0; 
+		if aStuff1 = 0 then aStuff1Type := '1x Tree Trunk';
+	if (States.HouseWareBlocked((States.HouseAt(aXMarketStore,aYMarketStore)),1)) = true then aStuff1 := 1; 
+		if aStuff1 = 1 then aStuff1Type := '1x Stone';
+	if (States.HouseWareBlocked((States.HouseAt(aXMarketStore,aYMarketStore)),2)) = true then aStuff1 := 2;
+		if aStuff1 = 2 then aStuff1Type := '1x Timber';
+	if (States.HouseWareBlocked((States.HouseAt(aXMarketStore,aYMarketStore)),3)) = true then aStuff1 := 3;
+		if aStuff1 = 3 then aStuff1Type := '1x Iron ore';
+	if (States.HouseWareBlocked((States.HouseAt(aXMarketStore,aYMarketStore)),4)) = true then aStuff1 := 4;
+		if aStuff1 = 4 then aStuff1Type := '1x Gold ore';
+	if (States.HouseWareBlocked((States.HouseAt(aXMarketStore,aYMarketStore)),5)) = true then aStuff1 := 5;
+		if aStuff1 = 5 then aStuff1Type := '1x Coal';
+	if (States.HouseWareBlocked((States.HouseAt(aXMarketStore,aYMarketStore)),6)) = true then aStuff1 := 6;
+		if aStuff1 = 6 then aStuff1Type := '1x Iron';
+	if (States.HouseWareBlocked((States.HouseAt(aXMarketStore,aYMarketStore)),7)) = true then aStuff1 := 7;
+		if aStuff1 = 7 then aStuff1Type := '1x Gold';
+	if (States.HouseWareBlocked((States.HouseAt(aXMarketStore,aYMarketStore)),8)) = true then aStuff1 := 8;
+		if aStuff1 = 8 then aStuff1Type := '1x Wine Barrel';
+	if (States.HouseWareBlocked((States.HouseAt(aXMarketStore,aYMarketStore)),9)) = true then aStuff1 := 9;
+		if aStuff1 = 9 then aStuff1Type := '1x Corn';
+	if (States.HouseWareBlocked((States.HouseAt(aXMarketStore,aYMarketStore)),10)) = true then aStuff1 := 10;
+		if aStuff1 = 10 then aStuff1Type := '1x Loaves';
+	if (States.HouseWareBlocked((States.HouseAt(aXMarketStore,aYMarketStore)),11)) = true then aStuff1 := 11;
+		if aStuff1 = 11 then aStuff1Type := '1x Flour';
+	if (States.HouseWareBlocked((States.HouseAt(aXMarketStore,aYMarketStore)),12)) = true then aStuff1 := 12;
+		if aStuff1 = 12 then aStuff1Type := '1x Leather';
+	if (States.HouseWareBlocked((States.HouseAt(aXMarketStore,aYMarketStore)),13)) = true then aStuff1 := 13;
+		if aStuff1 = 13 then aStuff1Type := '1x Sausage';
+	if (States.HouseWareBlocked((States.HouseAt(aXMarketStore,aYMarketStore)),14)) = true then aStuff1 := 14;
+		if aStuff1 = 14 then aStuff1Type := '1x Pig';
+	if (States.HouseWareBlocked((States.HouseAt(aXMarketStore,aYMarketStore)),15)) = true then aStuff1 := 15;
+		if aStuff1 = 15 then aStuff1Type := '1x Skins';
+	if (States.HouseWareBlocked((States.HouseAt(aXMarketStore,aYMarketStore)),27)) = true then aStuff1 := 27;
+		if aStuff1 = 27 then aStuff1Type := '1x Fish';
+
+	if aPlayer = 0 then aXstore1 := 41;
+	if aPlayer = 0 then aYstore1 := 66;
+
+	if aPlayer = 1 then aXstore1 := 48;
+	if aPlayer = 1 then aYstore1 := 108;
+
+	if aPlayer = 2 then aXstore1 := 47;
+	if aPlayer = 2 then aYstore1 := 159;
+
+	if aPlayer = 3 then aXstore1 := 54;
+	if aPlayer = 3 then aYstore1 := 199;
+
+	if aPlayer = 4 then aXstore1 := 196;
+	if aPlayer = 4 then aYstore1 := 67;
+
+	if aPlayer = 5 then aXstore1 := 184;
+	if aPlayer = 5 then aYstore1 := 104;
+
+	if aPlayer = 6 then aXstore1 := 198;
+	if aPlayer = 6 then aYstore1 := 151;
+
+	if aPlayer = 7 then aXstore1 := 211;
+	if aPlayer = 7 then aYstore1 := 188;
+
+		TradeStuffLU(aPlayer,aPlayer1,aStuff1,aXstore1,aYstore1,aStuff1Type + ' is sended from 1st store to ' + aPlayerName1 + ' every 10s.');
+end;
+
+procedure LoopPlayer78(aPlayer: Integer);
+var aStuff1, aPlayer1, aXstore1, aYstore1, aXLine1, aXLine2, aYLine1, aYLine2, aYLine3, aYLine4, aXMarketStore, aYMarketStore: Integer;
+var aStuff1Type, aPlayerName1: AnsiString;
+//var PlayerName: Byte;
+
+begin
+	// Player 7, 8 --> sending stuff
+	aStuff1 := -1;
+	aPlayer1 := -1;
+	aPlayerName1 := 'noone';
+
+	if aPlayer = 6 then aXLine1 := 22;
+	if aPlayer = 6 then aXLine2 := 25;
+	if aPlayer = 6 then aYLine1 := 7;
+	if aPlayer = 6 then aYLine2 := 10;
+	if aPlayer = 6 then aYLine3 := 13;
+	if aPlayer = 6 then aYLine4 := 16;
+	if aPlayer = 6 then aXMarketStore := 23;
+	if aPlayer = 6 then aYMarketStore := 3;
+
+	if aPlayer = 7 then aXLine1 := 22;
+	if aPlayer = 7 then aXLine2 := 25;
+	if aPlayer = 7 then aYLine1 := 7;
+	if aPlayer = 7 then aYLine2 := 10;
+	if aPlayer = 7 then aYLine3 := 13;
+	if aPlayer = 7 then aYLine4 := 16;
+	if aPlayer = 7 then aXMarketStore := 23;
+	if aPlayer = 7 then aYMarketStore := 19;
+
+	if States.UnitType(States.UnitAt(aXLine1,aYLine1)) = 24 then aPlayer1 := 0;
+		if aPlayer1 = 0 then aPlayerName1 := States.PlayerName(aPlayer1);
+	if States.UnitType(States.UnitAt(aXLine1,aYLine2)) = 24 then aPlayer1 := 1;
+		if aPlayer1 = 1 then aPlayerName1 := States.PlayerName(aPlayer1);
+	if States.UnitType(States.UnitAt(aXLine1,aYLine3)) = 24 then aPlayer1 := 2;
+		if aPlayer1 = 2 then aPlayerName1 := States.PlayerName(aPlayer1);
+	if States.UnitType(States.UnitAt(aXLine1,aYLine4)) = 24 then aPlayer1 := 3;
+		if aPlayer1 = 3 then aPlayerName1 := States.PlayerName(aPlayer1);
+	if States.UnitType(States.UnitAt(aXLine2,aYLine1)) = 24 then aPlayer1 := 4;
+		if aPlayer1 = 4 then aPlayerName1 := States.PlayerName(aPlayer1);
+	if States.UnitType(States.UnitAt(aXLine2,aYLine2)) = 24 then aPlayer1 := 5;
+		if aPlayer1 = 5 then aPlayerName1 := States.PlayerName(aPlayer1);
+	if States.UnitType(States.UnitAt(aXLine2,aYLine3)) = 24 then aPlayer1 := 6;
+		if aPlayer1 = 6 then aPlayerName1 := States.PlayerName(aPlayer1);
+	if States.UnitType(States.UnitAt(aXLine2,aYLine4)) = 24 then aPlayer1 := 7;
+		if aPlayer1 = 7 then aPlayerName1 := States.PlayerName(aPlayer1);
+
+		if aPlayer1 = -1 then
+			Exit;
+
+	if (States.HouseWareBlocked((States.HouseAt(aXMarketStore,aYMarketStore)),0)) = true then aStuff1 := 0; 
+		if aStuff1 = 0 then aStuff1Type := '1x Tree Trunk';
+	if (States.HouseWareBlocked((States.HouseAt(aXMarketStore,aYMarketStore)),1)) = true then aStuff1 := 1; 
+		if aStuff1 = 1 then aStuff1Type := '1x Stone';
+	if (States.HouseWareBlocked((States.HouseAt(aXMarketStore,aYMarketStore)),2)) = true then aStuff1 := 2;
+		if aStuff1 = 2 then aStuff1Type := '1x Timber';
+	if (States.HouseWareBlocked((States.HouseAt(aXMarketStore,aYMarketStore)),3)) = true then aStuff1 := 3;
+		if aStuff1 = 3 then aStuff1Type := '1x Iron ore';
+	if (States.HouseWareBlocked((States.HouseAt(aXMarketStore,aYMarketStore)),4)) = true then aStuff1 := 4;
+		if aStuff1 = 4 then aStuff1Type := '1x Gold ore';
+	if (States.HouseWareBlocked((States.HouseAt(aXMarketStore,aYMarketStore)),5)) = true then aStuff1 := 5;
+		if aStuff1 = 5 then aStuff1Type := '1x Coal';
+	if (States.HouseWareBlocked((States.HouseAt(aXMarketStore,aYMarketStore)),6)) = true then aStuff1 := 6;
+		if aStuff1 = 6 then aStuff1Type := '1x Iron';
+	if (States.HouseWareBlocked((States.HouseAt(aXMarketStore,aYMarketStore)),7)) = true then aStuff1 := 7;
+		if aStuff1 = 7 then aStuff1Type := '1x Gold';
+	if (States.HouseWareBlocked((States.HouseAt(aXMarketStore,aYMarketStore)),8)) = true then aStuff1 := 8;
+		if aStuff1 = 8 then aStuff1Type := '1x Wine Barrel';
+	if (States.HouseWareBlocked((States.HouseAt(aXMarketStore,aYMarketStore)),9)) = true then aStuff1 := 9;
+		if aStuff1 = 9 then aStuff1Type := '1x Corn';
+	if (States.HouseWareBlocked((States.HouseAt(aXMarketStore,aYMarketStore)),10)) = true then aStuff1 := 10;
+		if aStuff1 = 10 then aStuff1Type := '1x Loaves';
+	if (States.HouseWareBlocked((States.HouseAt(aXMarketStore,aYMarketStore)),11)) = true then aStuff1 := 11;
+		if aStuff1 = 11 then aStuff1Type := '1x Flour';
+	if (States.HouseWareBlocked((States.HouseAt(aXMarketStore,aYMarketStore)),12)) = true then aStuff1 := 12;
+		if aStuff1 = 12 then aStuff1Type := '1x Leather';
+	if (States.HouseWareBlocked((States.HouseAt(aXMarketStore,aYMarketStore)),13)) = true then aStuff1 := 13;
+		if aStuff1 = 13 then aStuff1Type := '1x Sausage';
+	if (States.HouseWareBlocked((States.HouseAt(aXMarketStore,aYMarketStore)),14)) = true then aStuff1 := 14;
+		if aStuff1 = 14 then aStuff1Type := '1x Pig';
+	if (States.HouseWareBlocked((States.HouseAt(aXMarketStore,aYMarketStore)),15)) = true then aStuff1 := 15;
+		if aStuff1 = 15 then aStuff1Type := '1x Skins';
+	if (States.HouseWareBlocked((States.HouseAt(aXMarketStore,aYMarketStore)),27)) = true then aStuff1 := 27;
+		if aStuff1 = 27 then aStuff1Type := '1x Fish';
+
+	if aPlayer = 0 then aXstore1 := 41;
+	if aPlayer = 0 then aYstore1 := 66;
+
+	if aPlayer = 1 then aXstore1 := 48;
+	if aPlayer = 1 then aYstore1 := 108;
+
+	if aPlayer = 2 then aXstore1 := 47;
+	if aPlayer = 2 then aYstore1 := 159;
+
+	if aPlayer = 3 then aXstore1 := 54;
+	if aPlayer = 3 then aYstore1 := 199;
+
+	if aPlayer = 4 then aXstore1 := 196;
+	if aPlayer = 4 then aYstore1 := 67;
+
+	if aPlayer = 5 then aXstore1 := 184;
+	if aPlayer = 5 then aYstore1 := 104;
+
+	if aPlayer = 6 then aXstore1 := 198;
+	if aPlayer = 6 then aYstore1 := 151;
+
+	if aPlayer = 7 then aXstore1 := 211;
+	if aPlayer = 7 then aYstore1 := 188;
+
+		TradeStuffLU(aPlayer,aPlayer1,aStuff1,aXstore1,aYstore1,aStuff1Type + ' is sended from 1st store to ' + aPlayerName1 + ' every 10s.');
+end;
+
+procedure OnTick;
+begin
+	if (States.GameTime mod 1 = 0) then
+	begin
+	LoopPlayer12(0);
+	LoopPlayer12(1);
+	LoopPlayer34(2);
+	LoopPlayer34(3);
+	LoopPlayer56(4);
+	LoopPlayer56(5);
+	LoopPlayer78(6);
+	LoopPlayer78(7);
+	end;
+	if (States.GameTime mod 200 = 0) then
+			Actions.OverlayTextSet(-1, '');
+end;
+
+	
+	{and (States.UnitAt(1,7) = States.ClosestUnit(aPlayer,1,1,24)) then aPlayer1 := 0;
+	or (States.UnitAt(1,10) = States.ClosestUnit(aPlayer,1,1,24)) then aPlayer1 := 1;
+	or (States.UnitAt(1,13) = States.ClosestUnit(aPlayer,1,1,24)) then aPlayer1 := 2;
+	or (States.UnitAt(1,16) = States.ClosestUnit(aPlayer,1,1,24)) then aPlayer1 := 3;
+	or (States.UnitAt(4,7) = States.ClosestUnit(aPlayer,1,1,24)) then aPlayer1 := 4;
+	or (States.UnitAt(4,10) = States.ClosestUnit(aPlayer,1,1,24)) then aPlayer1 := 5;
+	or (States.UnitAt(4,13) = States.ClosestUnit(aPlayer,1,1,24)) then aPlayer1 := 6;
+	or (States.UnitAt(4,16) = States.ClosestUnit(aPlayer,1,1,24)) then aPlayer1 := 7;}
