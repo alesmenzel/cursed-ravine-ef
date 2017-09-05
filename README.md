@@ -15,10 +15,7 @@ https://github.com/AlesMenzel/cursed-ravine-ef/wiki
 
 ### GENERAL TO DO
 * Add song after peacetime.
-* Translate comments to english in script.
 * Block walking before peacetime to prevent some players to discover others.
-* Reapair resources to be same.
-* Change victory = store + castle + school.
 
 ### SPECIAL TO DO
 
@@ -30,9 +27,6 @@ https://github.com/AlesMenzel/cursed-ravine-ef/wiki
 
 **Defense lines**
 * Create healing area on the first defense lines to heal defenders if they stay on some of point.
-
-**Trading stuffs**
-* Create chat condition script to send stuff to another player. Example: 30 gold to 2 = add 30 golds to player 2 and remove (if exists or not) to player who typed it.
 
 **Sounds**
 * Create sounds after some events (for exapl, you kill 100 enemies = "You are kileeeer!")
