@@ -1,0 +1,705 @@
+2017.09.08 23:00:06.344   cit. count: 8
+2017.09.08 23:00:06.726   cit. count: 8
+2017.09.08 23:00:07.092   cit. count: 8
+2017.09.08 23:00:07.476   cit. count: 8
+2017.09.08 23:00:07.843   cit. count: 8
+2017.09.08 23:00:08.226   cit. count: 8
+2017.09.08 23:00:08.592   cit. count: 8
+2017.09.08 23:00:08.976   cit. count: 8
+2017.09.08 23:00:09.343   cit. count: 8
+2017.09.08 23:00:09.727   cit. count: 0
+2017.09.08 23:00:10.093   cit. count: 0
+2017.09.08 23:00:10.477   cit. count: 0
+2017.09.08 23:00:10.842   cit. count: 0
+2017.09.08 23:00:11.225   cit. count: 0
+2017.09.08 23:00:11.593   cit. count: 0
+2017.09.08 23:00:11.975   cit. count: 0
+2017.09.08 23:00:12.342   cit. count: 0
+2017.09.08 23:00:12.726   cit. count: 0
+2017.09.08 23:00:13.092   cit. count: 0
+2017.09.08 23:00:13.476   cit. count: 0
+2017.09.08 23:00:13.843   cit. count: 0
+2017.09.08 23:00:14.227   cit. count: 0
+2017.09.08 23:02:02.572   cit. count: 8
+2017.09.08 23:02:02.573   player id: 5
+2017.09.08 23:02:02.931   cit. count: 8
+2017.09.08 23:02:02.932   player id: 5
+2017.09.08 23:02:03.315   cit. count: 8
+2017.09.08 23:02:03.315   player id: 5
+2017.09.08 23:02:03.681   cit. count: 8
+2017.09.08 23:02:03.682   player id: 5
+2017.09.08 23:02:04.065   cit. count: 8
+2017.09.08 23:02:04.066   player id: 5
+2017.09.08 23:02:04.431   cit. count: 8
+2017.09.08 23:02:04.432   player id: 5
+2017.09.08 23:02:04.815   cit. count: 8
+2017.09.08 23:02:04.816   player id: 5
+2017.09.08 23:02:05.181   cit. count: 8
+2017.09.08 23:02:05.182   player id: 5
+2017.09.08 23:02:05.565   cit. count: 8
+2017.09.08 23:02:05.566   player id: 5
+2017.09.08 23:02:05.932   cit. count: 8
+2017.09.08 23:02:05.933   player id: 5
+2017.09.08 23:02:06.316   cit. count: 8
+2017.09.08 23:02:06.316   player id: 5
+2017.09.08 23:02:06.682   cit. count: 0
+2017.09.08 23:02:06.683   player id: 5
+2017.09.08 23:02:07.066   cit. count: 0
+2017.09.08 23:02:07.066   player id: 5
+2017.09.08 23:02:07.432   cit. count: 0
+2017.09.08 23:02:07.433   player id: 5
+2017.09.08 23:02:07.816   cit. count: 0
+2017.09.08 23:02:07.817   player id: 5
+2017.09.08 23:02:08.182   cit. count: 0
+2017.09.08 23:02:08.183   player id: 5
+2017.09.08 23:02:08.566   cit. count: 0
+2017.09.08 23:02:08.566   player id: 5
+2017.09.08 23:02:08.932   cit. count: 0
+2017.09.08 23:02:08.932   player id: 5
+2017.09.08 23:07:48.416   cit. count: 8
+2017.09.08 23:07:48.417   player id: 6
+2017.09.08 23:07:48.783   cit. count: 8
+2017.09.08 23:07:48.784   player id: 6
+2017.09.08 23:07:49.150   cit. count: 8
+2017.09.08 23:07:49.151   player id: 6
+2017.09.08 23:07:49.533   cit. count: 8
+2017.09.08 23:07:49.533   player id: 6
+2017.09.08 23:07:49.900   cit. count: 8
+2017.09.08 23:07:49.900   player id: 6
+2017.09.08 23:07:50.283   cit. count: 8
+2017.09.08 23:07:50.283   player id: 6
+2017.09.08 23:07:50.650   cit. count: 8
+2017.09.08 23:07:50.650   player id: 6
+2017.09.08 23:07:51.033   cit. count: 8
+2017.09.08 23:07:51.034   player id: 6
+2017.09.08 23:07:51.400   cit. count: 8
+2017.09.08 23:07:51.401   player id: 6
+2017.09.08 23:07:51.783   cit. count: 8
+2017.09.08 23:07:51.784   player id: 6
+2017.09.08 23:07:52.150   cit. count: 8
+2017.09.08 23:07:52.151   player id: 6
+2017.09.08 23:07:52.533   cit. count: 8
+2017.09.08 23:07:52.534   player id: 6
+2017.09.08 23:07:52.900   cit. count: 8
+2017.09.08 23:07:52.900   player id: 6
+2017.09.08 23:07:53.285   cit. count: 8
+2017.09.08 23:07:53.286   player id: 6
+2017.09.08 23:07:53.650   cit. count: 8
+2017.09.08 23:07:53.651   player id: 6
+2017.09.08 23:07:54.033   cit. count: 8
+2017.09.08 23:07:54.034   player id: 6
+2017.09.08 23:07:54.400   cit. count: 0
+2017.09.08 23:07:54.401   player id: 6
+2017.09.08 23:07:54.783   cit. count: 0
+2017.09.08 23:07:54.784   player id: 6
+2017.09.08 23:07:55.150   cit. count: 0
+2017.09.08 23:07:55.151   player id: 6
+2017.09.08 23:07:55.533   cit. count: 0
+2017.09.08 23:07:55.534   player id: 6
+2017.09.08 23:07:55.899   cit. count: 0
+2017.09.08 23:07:55.900   player id: 6
+2017.09.08 23:07:56.283   cit. count: 0
+2017.09.08 23:07:56.284   player id: 6
+2017.09.08 23:07:56.650   cit. count: 0
+2017.09.08 23:07:56.651   player id: 6
+2017.09.08 23:07:57.033   cit. count: 0
+2017.09.08 23:07:57.034   player id: 6
+2017.09.08 23:07:57.400   cit. count: 0
+2017.09.08 23:07:57.400   player id: 6
+2017.09.08 23:07:57.784   cit. count: 0
+2017.09.08 23:07:57.786   player id: 6
+2017.09.08 23:07:58.150   cit. count: 0
+2017.09.08 23:07:58.151   player id: 6
+2017.09.08 23:07:58.533   cit. count: 0
+2017.09.08 23:07:58.533   player id: 6
+2017.09.08 23:07:58.900   cit. count: 0
+2017.09.08 23:07:58.900   player id: 6
+2017.09.08 23:07:59.284   cit. count: 0
+2017.09.08 23:07:59.284   player id: 6
+2017.09.08 23:07:59.650   cit. count: 0
+2017.09.08 23:07:59.651   player id: 6
+2017.09.08 23:08:00.033   cit. count: 0
+2017.09.08 23:08:00.034   player id: 6
+2017.09.08 23:08:00.405   cit. count: 0
+2017.09.08 23:08:00.406   player id: 6
+2017.09.08 23:08:00.784   cit. count: 0
+2017.09.08 23:08:00.784   player id: 6
+2017.09.08 23:08:01.150   cit. count: 0
+2017.09.08 23:08:01.151   player id: 6
+2017.09.08 23:08:01.534   cit. count: 0
+2017.09.08 23:08:01.534   player id: 6
+2017.09.08 23:08:01.901   cit. count: 0
+2017.09.08 23:08:01.901   player id: 6
+2017.09.08 23:08:02.284   cit. count: 0
+2017.09.08 23:08:02.285   player id: 6
+2017.09.08 23:08:02.651   cit. count: 0
+2017.09.08 23:08:02.651   player id: 6
+2017.09.08 23:08:03.034   cit. count: 0
+2017.09.08 23:08:03.035   player id: 6
+2017.09.08 23:08:03.400   cit. count: 0
+2017.09.08 23:08:03.401   player id: 6
+2017.09.08 23:08:03.784   cit. count: 0
+2017.09.08 23:08:03.785   player id: 6
+2017.09.08 23:08:04.150   cit. count: 0
+2017.09.08 23:08:04.151   player id: 6
+2017.09.08 23:08:04.534   cit. count: 0
+2017.09.08 23:08:04.535   player id: 6
+2017.09.08 23:08:04.901   cit. count: 0
+2017.09.08 23:08:04.902   player id: 6
+2017.09.08 23:08:05.283   cit. count: 0
+2017.09.08 23:08:05.284   player id: 6
+2017.09.08 23:08:05.651   cit. count: 0
+2017.09.08 23:08:05.651   player id: 6
+2017.09.08 23:08:06.034   cit. count: 0
+2017.09.08 23:08:06.035   player id: 6
+2017.09.08 23:08:06.401   cit. count: 0
+2017.09.08 23:08:06.401   player id: 6
+2017.09.08 23:08:06.784   cit. count: 0
+2017.09.08 23:08:06.785   player id: 6
+2017.09.08 23:08:07.151   cit. count: 0
+2017.09.08 23:08:07.151   player id: 6
+2017.09.08 23:08:07.533   cit. count: 0
+2017.09.08 23:08:07.534   player id: 6
+2017.09.08 23:08:07.900   cit. count: 0
+2017.09.08 23:08:07.901   player id: 6
+2017.09.08 23:08:08.285   cit. count: 0
+2017.09.08 23:08:08.286   player id: 6
+2017.09.08 23:08:08.651   cit. count: 0
+2017.09.08 23:08:08.651   player id: 6
+2017.09.08 23:08:09.034   cit. count: 0
+2017.09.08 23:08:09.034   player id: 6
+2017.09.08 23:08:09.400   cit. count: 0
+2017.09.08 23:08:09.401   player id: 6
+2017.09.08 23:08:09.784   cit. count: 0
+2017.09.08 23:08:09.785   player id: 6
+2017.09.08 23:08:10.151   cit. count: 0
+2017.09.08 23:08:10.151   player id: 6
+2017.09.08 23:08:10.534   cit. count: 0
+2017.09.08 23:08:10.535   player id: 6
+2017.09.08 23:08:10.900   cit. count: 0
+2017.09.08 23:08:10.901   player id: 6
+2017.09.08 23:08:11.284   cit. count: 0
+2017.09.08 23:08:11.284   player id: 6
+2017.09.08 23:08:11.651   cit. count: 0
+2017.09.08 23:08:11.651   player id: 6
+2017.09.08 23:08:12.034   cit. count: 0
+2017.09.08 23:08:12.034   player id: 6
+2017.09.08 23:08:12.400   cit. count: 0
+2017.09.08 23:08:12.401   player id: 6
+2017.09.08 23:08:12.784   cit. count: 0
+2017.09.08 23:08:12.784   player id: 6
+2017.09.08 23:08:13.151   cit. count: 0
+2017.09.08 23:08:13.151   player id: 6
+2017.09.08 23:08:13.536   cit. count: 0
+2017.09.08 23:08:13.537   player id: 6
+2017.09.08 23:08:13.901   cit. count: 0
+2017.09.08 23:08:13.901   player id: 6
+2017.09.08 23:08:14.284   cit. count: 0
+2017.09.08 23:08:14.285   player id: 6
+2017.09.08 23:08:14.651   cit. count: 0
+2017.09.08 23:08:14.651   player id: 6
+2017.09.08 23:08:15.034   cit. count: 0
+2017.09.08 23:08:15.035   player id: 6
+2017.09.08 23:08:15.481   cit. count: 0
+2017.09.08 23:08:15.483   player id: 6
+2017.09.08 23:08:15.784   cit. count: 0
+2017.09.08 23:08:15.784   player id: 6
+2017.09.08 23:08:16.151   cit. count: 0
+2017.09.08 23:08:16.151   player id: 6
+2017.09.08 23:08:16.535   cit. count: 0
+2017.09.08 23:08:16.535   player id: 6
+2017.09.08 23:08:16.901   cit. count: 0
+2017.09.08 23:08:16.902   player id: 6
+2017.09.08 23:08:17.285   cit. count: 0
+2017.09.08 23:08:17.285   player id: 6
+2017.09.08 23:08:17.651   cit. count: 0
+2017.09.08 23:08:17.652   player id: 6
+2017.09.08 23:08:18.034   cit. count: 0
+2017.09.08 23:08:18.035   player id: 6
+2017.09.08 23:08:18.401   cit. count: 0
+2017.09.08 23:08:18.402   player id: 6
+2017.09.08 23:08:18.785   cit. count: 0
+2017.09.08 23:08:18.785   player id: 6
+2017.09.08 23:08:19.152   cit. count: 0
+2017.09.08 23:08:19.152   player id: 6
+2017.09.08 23:08:19.535   cit. count: 0
+2017.09.08 23:08:19.535   player id: 6
+2017.09.08 23:08:19.901   cit. count: 0
+2017.09.08 23:08:19.901   player id: 6
+2017.09.08 23:08:20.285   cit. count: 0
+2017.09.08 23:08:20.285   player id: 6
+2017.09.08 23:08:20.651   cit. count: 0
+2017.09.08 23:08:20.651   player id: 6
+2017.09.08 23:08:21.085   cit. count: 0
+2017.09.08 23:08:21.085   player id: 6
+2017.09.08 23:08:21.452   cit. count: 0
+2017.09.08 23:08:21.452   player id: 6
+2017.09.08 23:08:21.834   cit. count: 0
+2017.09.08 23:08:21.835   player id: 6
+2017.09.08 23:08:22.201   cit. count: 0
+2017.09.08 23:08:22.202   player id: 6
+2017.09.08 23:08:22.570   cit. count: 0
+2017.09.08 23:08:22.571   player id: 6
+2017.09.08 23:08:22.951   cit. count: 0
+2017.09.08 23:08:22.951   player id: 6
+2017.09.08 23:08:23.335   cit. count: 0
+2017.09.08 23:08:23.336   player id: 6
+2017.09.08 23:08:23.701   cit. count: 0
+2017.09.08 23:08:23.702   player id: 6
+2017.09.08 23:08:24.085   cit. count: 0
+2017.09.08 23:08:24.086   player id: 6
+2017.09.08 23:08:24.452   cit. count: 0
+2017.09.08 23:08:24.452   player id: 6
+2017.09.08 23:08:24.835   cit. count: 0
+2017.09.08 23:08:24.835   player id: 6
+2017.09.08 23:08:25.201   cit. count: 0
+2017.09.08 23:08:25.202   player id: 6
+2017.09.08 23:08:25.585   cit. count: 0
+2017.09.08 23:08:25.586   player id: 6
+2017.09.08 23:08:25.951   cit. count: 0
+2017.09.08 23:08:25.952   player id: 6
+2017.09.08 23:08:26.335   cit. count: 0
+2017.09.08 23:08:26.336   player id: 6
+2017.09.08 23:08:26.703   cit. count: 0
+2017.09.08 23:08:26.704   player id: 6
+2017.09.08 23:08:27.085   cit. count: 0
+2017.09.08 23:08:27.086   player id: 6
+2017.09.08 23:08:27.452   cit. count: 0
+2017.09.08 23:08:27.452   player id: 6
+2017.09.08 23:08:27.821   cit. count: 0
+2017.09.08 23:08:27.821   player id: 6
+2017.09.08 23:08:28.202   cit. count: 0
+2017.09.08 23:08:28.203   player id: 6
+2017.09.08 23:08:28.585   cit. count: 0
+2017.09.08 23:08:28.586   player id: 6
+2017.09.08 23:08:28.957   cit. count: 0
+2017.09.08 23:08:28.958   player id: 6
+2017.09.08 23:08:29.335   cit. count: 0
+2017.09.08 23:08:29.336   player id: 6
+2017.09.08 23:08:29.702   cit. count: 0
+2017.09.08 23:08:29.703   player id: 6
+2017.09.08 23:08:30.086   cit. count: 0
+2017.09.08 23:08:30.086   player id: 6
+2017.09.08 23:08:30.452   cit. count: 0
+2017.09.08 23:08:30.453   player id: 6
+2017.09.08 23:08:30.838   cit. count: 0
+2017.09.08 23:08:30.839   player id: 6
+2017.09.08 23:08:31.202   cit. count: 0
+2017.09.08 23:08:31.203   player id: 6
+2017.09.08 23:08:31.585   cit. count: 0
+2017.09.08 23:08:31.586   player id: 6
+2017.09.08 23:08:31.953   cit. count: 0
+2017.09.08 23:08:31.953   player id: 6
+2017.09.08 23:08:32.324   cit. count: 0
+2017.09.08 23:08:32.325   player id: 6
+2017.09.08 23:08:32.708   cit. count: 0
+2017.09.08 23:08:32.709   player id: 6
+2017.09.08 23:08:33.093   cit. count: 0
+2017.09.08 23:08:33.093   player id: 6
+2017.09.08 23:08:33.458   cit. count: 0
+2017.09.08 23:08:33.458   player id: 6
+2017.09.08 23:08:33.824   cit. count: 0
+2017.09.08 23:08:33.825   player id: 6
+2017.09.08 23:08:34.208   cit. count: 0
+2017.09.08 23:08:34.208   player id: 6
+2017.09.08 23:08:34.574   cit. count: 0
+2017.09.08 23:08:34.575   player id: 6
+2017.09.08 23:08:34.952   cit. count: 0
+2017.09.08 23:08:34.953   player id: 6
+2017.09.08 23:08:35.336   cit. count: 0
+2017.09.08 23:08:35.336   player id: 6
+2017.09.08 23:08:35.708   cit. count: 0
+2017.09.08 23:08:35.708   player id: 6
+2017.09.08 23:08:36.182   cit. count: 0
+2017.09.08 23:08:36.183   player id: 6
+2017.09.08 23:08:36.504   cit. count: 0
+2017.09.08 23:08:36.505   player id: 6
+2017.09.08 23:08:36.869   cit. count: 0
+2017.09.08 23:08:36.870   player id: 6
+2017.09.08 23:08:37.257   cit. count: 0
+2017.09.08 23:08:37.258   player id: 6
+2017.09.08 23:08:37.626   cit. count: 0
+2017.09.08 23:08:37.627   player id: 6
+2017.09.08 23:08:38.003   cit. count: 0
+2017.09.08 23:08:38.003   player id: 6
+2017.09.08 23:08:38.375   cit. count: 0
+2017.09.08 23:08:38.376   player id: 6
+2017.09.08 23:08:38.753   cit. count: 0
+2017.09.08 23:08:38.753   player id: 6
+2017.09.08 23:08:39.119   cit. count: 0
+2017.09.08 23:08:39.120   player id: 6
+2017.09.08 23:08:39.503   cit. count: 0
+2017.09.08 23:08:39.503   player id: 6
+2017.09.08 23:08:39.869   cit. count: 0
+2017.09.08 23:08:39.870   player id: 6
+2017.09.08 23:08:40.253   cit. count: 0
+2017.09.08 23:08:40.253   player id: 6
+2017.09.08 23:08:40.620   cit. count: 0
+2017.09.08 23:08:40.620   player id: 6
+2017.09.08 23:08:41.003   cit. count: 0
+2017.09.08 23:08:41.003   player id: 6
+2017.09.08 23:08:41.369   cit. count: 0
+2017.09.08 23:08:41.370   player id: 6
+2017.09.08 23:08:41.753   cit. count: 0
+2017.09.08 23:08:41.753   player id: 6
+2017.09.08 23:08:42.119   cit. count: 0
+2017.09.08 23:08:42.120   player id: 6
+2017.09.08 23:08:42.503   cit. count: 0
+2017.09.08 23:08:42.503   player id: 6
+2017.09.08 23:08:42.870   cit. count: 0
+2017.09.08 23:08:42.870   player id: 6
+2017.09.08 23:08:43.253   cit. count: 0
+2017.09.08 23:08:43.253   player id: 6
+2017.09.08 23:08:43.627   cit. count: 0
+2017.09.08 23:08:43.627   player id: 6
+2017.09.08 23:08:44.003   cit. count: 0
+2017.09.08 23:08:44.004   player id: 6
+2017.09.08 23:08:44.375   cit. count: 0
+2017.09.08 23:08:44.376   player id: 6
+2017.09.08 23:08:44.753   cit. count: 0
+2017.09.08 23:08:44.753   player id: 6
+2017.09.08 23:08:45.120   cit. count: 0
+2017.09.08 23:08:45.120   player id: 6
+2017.09.08 23:08:45.503   cit. count: 0
+2017.09.08 23:08:45.504   player id: 6
+2017.09.08 23:08:45.870   cit. count: 0
+2017.09.08 23:08:45.870   player id: 6
+2017.09.08 23:08:46.253   cit. count: 0
+2017.09.08 23:08:46.254   player id: 6
+2017.09.08 23:08:46.620   cit. count: 0
+2017.09.08 23:08:46.620   player id: 6
+2017.09.08 23:08:47.003   cit. count: 0
+2017.09.08 23:08:47.004   player id: 6
+2017.09.08 23:08:47.370   cit. count: 0
+2017.09.08 23:08:47.370   player id: 6
+2017.09.08 23:08:47.753   cit. count: 0
+2017.09.08 23:08:47.754   player id: 6
+2017.09.08 23:08:48.120   cit. count: 0
+2017.09.08 23:08:48.120   player id: 6
+2017.09.08 23:08:48.503   cit. count: 0
+2017.09.08 23:08:48.504   player id: 6
+2017.09.08 23:08:48.870   cit. count: 0
+2017.09.08 23:08:48.870   player id: 6
+2017.09.08 23:08:49.253   cit. count: 0
+2017.09.08 23:08:49.254   player id: 6
+2017.09.08 23:08:49.629   cit. count: 0
+2017.09.08 23:08:49.630   player id: 6
+2017.09.08 23:08:50.003   cit. count: 0
+2017.09.08 23:08:50.004   player id: 6
+2017.09.08 23:08:50.376   cit. count: 0
+2017.09.08 23:08:50.376   player id: 6
+2017.09.08 23:08:50.753   cit. count: 0
+2017.09.08 23:08:50.754   player id: 6
+2017.09.08 23:08:51.120   cit. count: 0
+2017.09.08 23:08:51.121   player id: 6
+2017.09.08 23:08:51.492   cit. count: 0
+2017.09.08 23:08:51.492   player id: 6
+2017.09.08 23:08:51.870   cit. count: 0
+2017.09.08 23:08:51.871   player id: 6
+2017.09.08 23:08:52.254   cit. count: 0
+2017.09.08 23:08:52.254   player id: 6
+2017.09.08 23:08:52.620   cit. count: 0
+2017.09.08 23:08:52.621   player id: 6
+2017.09.08 23:08:53.010   cit. count: 0
+2017.09.08 23:08:53.010   player id: 6
+2017.09.08 23:08:53.370   cit. count: 0
+2017.09.08 23:08:53.371   player id: 6
+2017.09.08 23:08:53.753   cit. count: 0
+2017.09.08 23:08:53.754   player id: 6
+2017.09.08 23:08:54.120   cit. count: 0
+2017.09.08 23:08:54.121   player id: 6
+2017.09.08 23:08:54.504   cit. count: 0
+2017.09.08 23:08:54.504   player id: 6
+2017.09.08 23:08:54.870   cit. count: 0
+2017.09.08 23:08:54.871   player id: 6
+2017.09.08 23:08:55.243   cit. count: 0
+2017.09.08 23:08:55.243   player id: 6
+2017.09.08 23:08:55.620   cit. count: 0
+2017.09.08 23:08:55.621   player id: 6
+2017.09.08 23:08:56.003   cit. count: 0
+2017.09.08 23:08:56.004   player id: 6
+2017.09.08 23:08:56.371   cit. count: 0
+2017.09.08 23:08:56.371   player id: 6
+2017.09.08 23:08:56.753   cit. count: 0
+2017.09.08 23:08:56.754   player id: 6
+2017.09.08 23:08:57.120   cit. count: 0
+2017.09.08 23:08:57.120   player id: 6
+2017.09.08 23:08:57.504   cit. count: 0
+2017.09.08 23:08:57.504   player id: 6
+2017.09.08 23:08:57.870   cit. count: 0
+2017.09.08 23:08:57.871   player id: 6
+2017.09.08 23:08:58.253   cit. count: 0
+2017.09.08 23:08:58.254   player id: 6
+2017.09.08 23:08:58.620   cit. count: 0
+2017.09.08 23:08:58.621   player id: 6
+2017.09.08 23:08:59.004   cit. count: 0
+2017.09.08 23:08:59.004   player id: 6
+2017.09.08 23:08:59.370   cit. count: 0
+2017.09.08 23:08:59.371   player id: 6
+2017.09.08 23:08:59.754   cit. count: 0
+2017.09.08 23:08:59.754   player id: 6
+2017.09.08 23:09:00.121   cit. count: 0
+2017.09.08 23:09:00.121   player id: 6
+2017.09.08 23:09:00.503   cit. count: 0
+2017.09.08 23:09:00.504   player id: 6
+2017.09.08 23:09:00.870   cit. count: 0
+2017.09.08 23:09:00.871   player id: 6
+2017.09.08 23:09:01.254   cit. count: 0
+2017.09.08 23:09:01.254   player id: 6
+2017.09.08 23:09:01.620   cit. count: 0
+2017.09.08 23:09:01.620   player id: 6
+2017.09.08 23:09:02.067   cit. count: 0
+2017.09.08 23:09:02.068   player id: 6
+2017.09.08 23:09:02.370   cit. count: 0
+2017.09.08 23:09:02.371   player id: 6
+2017.09.08 23:09:02.755   cit. count: 0
+2017.09.08 23:09:02.756   player id: 6
+2017.09.08 23:09:03.120   cit. count: 0
+2017.09.08 23:09:03.121   player id: 6
+2017.09.08 23:09:03.504   cit. count: 0
+2017.09.08 23:09:03.504   player id: 6
+2017.09.08 23:09:03.871   cit. count: 0
+2017.09.08 23:09:03.871   player id: 6
+2017.09.08 23:09:04.254   cit. count: 0
+2017.09.08 23:09:04.254   player id: 6
+2017.09.08 23:09:04.621   cit. count: 0
+2017.09.08 23:09:04.621   player id: 6
+2017.09.08 23:09:05.004   cit. count: 0
+2017.09.08 23:09:05.004   player id: 6
+2017.09.08 23:09:05.370   cit. count: 0
+2017.09.08 23:09:05.371   player id: 6
+2017.09.08 23:09:05.754   cit. count: 0
+2017.09.08 23:09:05.754   player id: 6
+2017.09.08 23:09:06.120   cit. count: 0
+2017.09.08 23:09:06.121   player id: 6
+2017.09.08 23:09:06.504   cit. count: 0
+2017.09.08 23:09:06.504   player id: 6
+2017.09.08 23:09:06.870   cit. count: 0
+2017.09.08 23:09:06.871   player id: 6
+2017.09.08 23:09:07.254   cit. count: 0
+2017.09.08 23:09:07.254   player id: 6
+2017.09.08 23:09:07.622   cit. count: 0
+2017.09.08 23:09:07.622   player id: 6
+2017.09.08 23:09:08.004   cit. count: 0
+2017.09.08 23:09:08.004   player id: 6
+2017.09.08 23:09:08.371   cit. count: 0
+2017.09.08 23:09:08.371   player id: 6
+2017.09.08 23:09:08.754   cit. count: 0
+2017.09.08 23:09:08.755   player id: 6
+2017.09.08 23:09:09.121   cit. count: 0
+2017.09.08 23:09:09.121   player id: 6
+2017.09.08 23:09:09.504   cit. count: 0
+2017.09.08 23:09:09.504   player id: 6
+2017.09.08 23:09:09.871   cit. count: 0
+2017.09.08 23:09:09.871   player id: 6
+2017.09.08 23:09:10.254   cit. count: 0
+2017.09.08 23:09:10.254   player id: 6
+2017.09.08 23:09:10.621   cit. count: 0
+2017.09.08 23:09:10.621   player id: 6
+2017.09.08 23:09:11.004   cit. count: 0
+2017.09.08 23:09:11.004   player id: 6
+2017.09.08 23:09:11.371   cit. count: 0
+2017.09.08 23:09:11.371   player id: 6
+2017.09.08 23:09:11.754   cit. count: 0
+2017.09.08 23:09:11.754   player id: 6
+2017.09.08 23:09:12.121   cit. count: 0
+2017.09.08 23:09:12.121   player id: 6
+2017.09.08 23:09:12.504   cit. count: 0
+2017.09.08 23:09:12.505   player id: 6
+2017.09.08 23:09:12.871   cit. count: 0
+2017.09.08 23:09:12.871   player id: 6
+2017.09.08 23:09:13.254   cit. count: 0
+2017.09.08 23:09:13.255   player id: 6
+2017.09.08 23:09:13.622   cit. count: 0
+2017.09.08 23:09:13.622   player id: 6
+2017.09.08 23:09:14.004   cit. count: 0
+2017.09.08 23:09:14.005   player id: 6
+2017.09.08 23:09:14.371   cit. count: 0
+2017.09.08 23:09:14.371   player id: 6
+2017.09.08 23:09:14.755   cit. count: 0
+2017.09.08 23:09:14.755   player id: 6
+2017.09.08 23:09:15.121   cit. count: 0
+2017.09.08 23:09:15.122   player id: 6
+2017.09.08 23:09:15.505   cit. count: 0
+2017.09.08 23:09:15.505   player id: 6
+2017.09.08 23:09:15.873   cit. count: 0
+2017.09.08 23:09:15.873   player id: 6
+2017.09.08 23:09:16.257   cit. count: 0
+2017.09.08 23:09:16.257   player id: 6
+2017.09.08 23:09:16.621   cit. count: 0
+2017.09.08 23:09:16.622   player id: 6
+2017.09.08 23:09:17.004   cit. count: 0
+2017.09.08 23:09:17.005   player id: 6
+2017.09.08 23:09:17.371   cit. count: 0
+2017.09.08 23:09:17.372   player id: 6
+2017.09.08 23:09:17.754   cit. count: 0
+2017.09.08 23:09:17.755   player id: 6
+2017.09.08 23:09:18.121   cit. count: 0
+2017.09.08 23:09:18.122   player id: 6
+2017.09.08 23:09:18.505   cit. count: 0
+2017.09.08 23:09:18.505   player id: 6
+2017.09.08 23:09:18.872   cit. count: 0
+2017.09.08 23:09:18.872   player id: 6
+2017.09.08 23:09:19.255   cit. count: 0
+2017.09.08 23:09:19.255   player id: 6
+2017.09.08 23:09:19.625   cit. count: 0
+2017.09.08 23:09:19.625   player id: 6
+2017.09.08 23:09:20.005   cit. count: 0
+2017.09.08 23:09:20.006   player id: 6
+2017.09.08 23:09:20.372   cit. count: 0
+2017.09.08 23:09:20.372   player id: 6
+2017.09.08 23:09:20.755   cit. count: 0
+2017.09.08 23:09:20.755   player id: 6
+2017.09.08 23:09:21.122   cit. count: 0
+2017.09.08 23:09:21.122   player id: 6
+2017.09.08 23:09:21.505   cit. count: 0
+2017.09.08 23:09:21.505   player id: 6
+2017.09.08 23:09:21.872   cit. count: 0
+2017.09.08 23:09:21.872   player id: 6
+2017.09.08 23:09:22.255   cit. count: 0
+2017.09.08 23:09:22.255   player id: 6
+2017.09.08 23:09:22.622   cit. count: 0
+2017.09.08 23:09:22.622   player id: 6
+2017.09.08 23:09:23.005   cit. count: 0
+2017.09.08 23:09:23.006   player id: 6
+2017.09.08 23:09:23.372   cit. count: 0
+2017.09.08 23:09:23.373   player id: 6
+2017.09.08 23:09:23.744   cit. count: 0
+2017.09.08 23:09:23.745   player id: 6
+2017.09.08 23:09:24.122   cit. count: 0
+2017.09.08 23:09:24.122   player id: 6
+2017.09.08 23:09:24.505   cit. count: 0
+2017.09.08 23:09:24.506   player id: 6
+2017.09.08 23:19:20.204   Script compile errors:
+[Error] (210:4): Unknown identifier 'CreateListOfBuildings'
+
+2017.09.08 23:27:49.573   Script compile errors:
+[Error] (168:1): Semicolon (';') expected
+
+2017.09.08 23:40:23.183   Script compile errors:
+[Error] (262:1): 'BEGIN' expected
+
+2017.09.08 23:48:48.530   Exception in script: 'Out Of Range' in procedure 'GETALLCITIZEN'
+2017.09.08 23:48:48.913   Exception in script: 'Out Of Range' in procedure 'GETALLCITIZEN'
+2017.09.08 23:48:49.279   Exception in script: 'Out Of Range' in procedure 'GETALLCITIZEN'
+2017.09.08 23:48:49.662   Exception in script: 'Out Of Range' in procedure 'GETALLCITIZEN'
+2017.09.08 23:48:50.029   Exception in script: 'Out Of Range' in procedure 'GETALLCITIZEN'
+2017.09.08 23:48:50.412   Exception in script: 'Out Of Range' in procedure 'GETALLCITIZEN'
+2017.09.08 23:48:50.779   Exception in script: 'Out Of Range' in procedure 'GETALLCITIZEN'
+2017.09.08 23:48:51.162   Exception in script: 'Out Of Range' in procedure 'GETALLCITIZEN'
+2017.09.08 23:48:51.529   Exception in script: 'Out Of Range' in procedure 'GETALLCITIZEN'
+2017.09.08 23:48:51.912   Exception in script: 'Out Of Range' in procedure 'GETALLCITIZEN'
+2017.09.08 23:48:52.279   Exception in script: 'Out Of Range' in procedure 'GETALLCITIZEN'
+2017.09.08 23:48:52.662   Exception in script: 'Out Of Range' in procedure 'GETALLCITIZEN'
+2017.09.08 23:48:53.029   Exception in script: 'Out Of Range' in procedure 'GETALLCITIZEN'
+2017.09.08 23:48:53.413   Exception in script: 'Out Of Range' in procedure 'GETALLCITIZEN'
+2017.09.08 23:48:53.779   Exception in script: 'Out Of Range' in procedure 'GETALLCITIZEN'
+2017.09.08 23:48:54.162   Exception in script: 'Out Of Range' in procedure 'GETALLCITIZEN'
+2017.09.08 23:48:54.529   Exception in script: 'Out Of Range' in procedure 'GETALLCITIZEN'
+2017.09.08 23:48:54.912   Exception in script: 'Out Of Range' in procedure 'GETALLCITIZEN'
+2017.09.08 23:48:55.279   Exception in script: 'Out Of Range' in procedure 'GETALLCITIZEN'
+2017.09.08 23:48:55.663   Exception in script: 'Out Of Range' in procedure 'GETALLCITIZEN'
+2017.09.08 23:48:56.029   Exception in script: 'Out Of Range' in procedure 'GETALLCITIZEN'
+2017.09.08 23:48:56.412   Exception in script: 'Out Of Range' in procedure 'GETALLCITIZEN'
+2017.09.08 23:48:56.779   Exception in script: 'Out Of Range' in procedure 'GETALLCITIZEN'
+2017.09.08 23:48:57.163   Exception in script: 'Out Of Range' in procedure 'GETALLCITIZEN'
+2017.09.08 23:48:57.529   Exception in script: 'Out Of Range' in procedure 'GETALLCITIZEN'
+2017.09.08 23:48:57.913   Exception in script: 'Out Of Range' in procedure 'GETALLCITIZEN'
+2017.09.08 23:48:58.279   Exception in script: 'Out Of Range' in procedure 'GETALLCITIZEN'
+2017.09.08 23:48:58.663   Exception in script: 'Out Of Range' in procedure 'GETALLCITIZEN'
+2017.09.08 23:48:59.029   Exception in script: 'Out Of Range' in procedure 'GETALLCITIZEN'
+2017.09.08 23:48:59.413   Exception in script: 'Out Of Range' in procedure 'GETALLCITIZEN'
+2017.09.08 23:48:59.783   Exception in script: 'Out Of Range' in procedure 'GETALLCITIZEN'
+2017.09.08 23:49:00.163   Exception in script: 'Out Of Range' in procedure 'GETALLCITIZEN'
+2017.09.08 23:49:00.529   Exception in script: 'Out Of Range' in procedure 'GETALLCITIZEN'
+2017.09.08 23:49:00.913   Exception in script: 'Out Of Range' in procedure 'GETALLCITIZEN'
+2017.09.08 23:49:01.280   Exception in script: 'Out Of Range' in procedure 'GETALLCITIZEN'
+2017.09.08 23:49:01.663   Exception in script: 'Out Of Range' in procedure 'GETALLCITIZEN'
+2017.09.08 23:49:02.029   Exception in script: 'Out Of Range' in procedure 'GETALLCITIZEN'
+2017.09.08 23:49:02.413   Exception in script: 'Out Of Range' in procedure 'GETALLCITIZEN'
+2017.09.08 23:49:02.779   Exception in script: 'Out Of Range' in procedure 'GETALLCITIZEN'
+2017.09.08 23:49:03.163   Exception in script: 'Out Of Range' in procedure 'GETALLCITIZEN'
+2017.09.08 23:49:03.530   Exception in script: 'Out Of Range' in procedure 'GETALLCITIZEN'
+2017.09.08 23:49:03.912   Exception in script: 'Out Of Range' in procedure 'GETALLCITIZEN'
+2017.09.08 23:49:04.279   Exception in script: 'Out Of Range' in procedure 'GETALLCITIZEN'
+2017.09.08 23:49:04.663   Exception in script: 'Out Of Range' in procedure 'GETALLCITIZEN'
+2017.09.08 23:49:05.029   Exception in script: 'Out Of Range' in procedure 'GETALLCITIZEN'
+2017.09.08 23:49:05.413   Exception in script: 'Out Of Range' in procedure 'GETALLCITIZEN'
+2017.09.08 23:49:05.781   Exception in script: 'Out Of Range' in procedure 'GETALLCITIZEN'
+2017.09.08 23:49:06.163   Exception in script: 'Out Of Range' in procedure 'GETALLCITIZEN'
+2017.09.08 23:49:06.530   Exception in script: 'Out Of Range' in procedure 'GETALLCITIZEN'
+2017.09.08 23:49:06.913   Exception in script: 'Out Of Range' in procedure 'GETALLCITIZEN'
+2017.09.08 23:49:07.279   Exception in script: 'Out Of Range' in procedure 'GETALLCITIZEN'
+2017.09.08 23:49:07.789   Exception in script: 'Out Of Range' in procedure 'GETALLCITIZEN'
+2017.09.08 23:49:08.129   Exception in script: 'Out Of Range' in procedure 'GETALLCITIZEN'
+2017.09.08 23:49:08.496   Exception in script: 'Out Of Range' in procedure 'GETALLCITIZEN'
+2017.09.08 23:49:08.880   Exception in script: 'Out Of Range' in procedure 'GETALLCITIZEN'
+2017.09.08 23:49:09.246   Exception in script: 'Out Of Range' in procedure 'GETALLCITIZEN'
+2017.09.08 23:49:09.629   Exception in script: 'Out Of Range' in procedure 'GETALLCITIZEN'
+2017.09.08 23:49:09.996   Exception in script: 'Out Of Range' in procedure 'GETALLCITIZEN'
+2017.09.08 23:49:10.380   Exception in script: 'Out Of Range' in procedure 'GETALLCITIZEN'
+2017.09.08 23:49:10.746   Exception in script: 'Out Of Range' in procedure 'GETALLCITIZEN'
+2017.09.08 23:49:11.130   Exception in script: 'Out Of Range' in procedure 'GETALLCITIZEN'
+2017.09.08 23:49:11.496   Exception in script: 'Out Of Range' in procedure 'GETALLCITIZEN'
+2017.09.08 23:49:11.880   Exception in script: 'Out Of Range' in procedure 'GETALLCITIZEN'
+2017.09.08 23:49:12.246   Exception in script: 'Out Of Range' in procedure 'GETALLCITIZEN'
+2017.09.08 23:49:12.629   Exception in script: 'Out Of Range' in procedure 'GETALLCITIZEN'
+2017.09.08 23:49:12.996   Exception in script: 'Out Of Range' in procedure 'GETALLCITIZEN'
+2017.09.08 23:49:13.380   Exception in script: 'Out Of Range' in procedure 'GETALLCITIZEN'
+2017.09.08 23:49:13.748   Exception in script: 'Out Of Range' in procedure 'GETALLCITIZEN'
+2017.09.08 23:49:14.130   Exception in script: 'Out Of Range' in procedure 'GETALLCITIZEN'
+2017.09.08 23:49:14.497   Exception in script: 'Out Of Range' in procedure 'GETALLCITIZEN'
+2017.09.08 23:49:14.880   Exception in script: 'Out Of Range' in procedure 'GETALLCITIZEN'
+2017.09.08 23:49:15.247   Exception in script: 'Out Of Range' in procedure 'GETALLCITIZEN'
+2017.09.08 23:49:15.630   Exception in script: 'Out Of Range' in procedure 'GETALLCITIZEN'
+2017.09.08 23:49:15.996   Exception in script: 'Out Of Range' in procedure 'GETALLCITIZEN'
+2017.09.08 23:49:16.380   Exception in script: 'Out Of Range' in procedure 'GETALLCITIZEN'
+2017.09.08 23:49:16.746   Exception in script: 'Out Of Range' in procedure 'GETALLCITIZEN'
+2017.09.08 23:49:17.130   Exception in script: 'Out Of Range' in procedure 'GETALLCITIZEN'
+2017.09.08 23:49:17.497   Exception in script: 'Out Of Range' in procedure 'GETALLCITIZEN'
+2017.09.08 23:49:17.880   Exception in script: 'Out Of Range' in procedure 'GETALLCITIZEN'
+2017.09.08 23:49:18.246   Exception in script: 'Out Of Range' in procedure 'GETALLCITIZEN'
+2017.09.08 23:49:18.632   Exception in script: 'Out Of Range' in procedure 'GETALLCITIZEN'
+2017.09.08 23:49:18.997   Exception in script: 'Out Of Range' in procedure 'GETALLCITIZEN'
+2017.09.08 23:49:19.380   Exception in script: 'Out Of Range' in procedure 'GETALLCITIZEN'
+2017.09.08 23:49:19.747   Exception in script: 'Out Of Range' in procedure 'GETALLCITIZEN'
+2017.09.08 23:49:20.130   Exception in script: 'Out Of Range' in procedure 'GETALLCITIZEN'
+2017.09.08 23:49:20.497   Exception in script: 'Out Of Range' in procedure 'GETALLCITIZEN'
+2017.09.08 23:49:20.880   Exception in script: 'Out Of Range' in procedure 'GETALLCITIZEN'
+2017.09.08 23:49:21.247   Exception in script: 'Out Of Range' in procedure 'GETALLCITIZEN'
+2017.09.08 23:49:21.630   Exception in script: 'Out Of Range' in procedure 'GETALLCITIZEN'
+2017.09.08 23:49:21.997   Exception in script: 'Out Of Range' in procedure 'GETALLCITIZEN'
+2017.09.08 23:49:22.380   Exception in script: 'Out Of Range' in procedure 'GETALLCITIZEN'
+2017.09.08 23:49:22.748   Exception in script: 'Out Of Range' in procedure 'GETALLCITIZEN'
+2017.09.08 23:49:23.130   Exception in script: 'Out Of Range' in procedure 'GETALLCITIZEN'
+2017.09.08 23:49:23.497   Exception in script: 'Out Of Range' in procedure 'GETALLCITIZEN'
+2017.09.08 23:49:23.883   Exception in script: 'Out Of Range' in procedure 'GETALLCITIZEN'
+2017.09.08 23:49:24.247   Exception in script: 'Out Of Range' in procedure 'GETALLCITIZEN'
+2017.09.08 23:49:24.631   Exception in script: 'Out Of Range' in procedure 'GETALLCITIZEN'
+2017.09.08 23:49:24.997   Exception in script: 'Out Of Range' in procedure 'GETALLCITIZEN'
+2017.09.08 23:49:25.381   Exception in script: 'Out Of Range' in procedure 'GETALLCITIZEN'
+2017.09.08 23:49:25.747   Exception in script: 'Out Of Range' in procedure 'GETALLCITIZEN'
+2017.09.08 23:49:26.135   Exception in script: 'Out Of Range' in procedure 'GETALLCITIZEN'
+2017.09.08 23:49:26.497   Exception in script: 'Out Of Range' in procedure 'GETALLCITIZEN'
+2017.09.08 23:49:26.881   Exception in script: 'Out Of Range' in procedure 'GETALLCITIZEN'
+2017.09.08 23:49:27.248   Exception in script: 'Out Of Range' in procedure 'GETALLCITIZEN'
+2017.09.08 23:49:27.631   Exception in script: 'Out Of Range' in procedure 'GETALLCITIZEN'
+2017.09.08 23:49:27.997   Exception in script: 'Out Of Range' in procedure 'GETALLCITIZEN'
+2017.09.08 23:49:28.381   Exception in script: 'Out Of Range' in procedure 'GETALLCITIZEN'
+2017.09.08 23:49:28.747   Exception in script: 'Out Of Range' in procedure 'GETALLCITIZEN'
+2017.09.08 23:49:29.130   Exception in script: 'Out Of Range' in procedure 'GETALLCITIZEN'
+2017.09.08 23:49:29.599   Exception in script: 'Out Of Range' in procedure 'GETALLCITIZEN'
+2017.09.08 23:49:29.914   Exception in script: 'Out Of Range' in procedure 'GETALLCITIZEN'
+2017.09.08 23:49:30.297   Exception in script: 'Out Of Range' in procedure 'GETALLCITIZEN'
+2017.09.08 23:49:30.666   Exception in script: 'Out Of Range' in procedure 'GETALLCITIZEN'
+2017.09.08 23:49:31.047   Exception in script: 'Out Of Range' in procedure 'GETALLCITIZEN'
+2017.09.08 23:49:31.414   Exception in script: 'Out Of Range' in procedure 'GETALLCITIZEN'
+2017.09.08 23:49:31.797   Exception in script: 'Out Of Range' in procedure 'GETALLCITIZEN'
+2017.09.08 23:49:32.164   Exception in script: 'Out Of Range' in procedure 'GETALLCITIZEN'
+2017.09.08 23:49:32.547   Exception in script: 'Out Of Range' in procedure 'GETALLCITIZEN'
+2017.09.08 23:57:00.983   Script compile errors:
+[Error] (251:4): Unknown identifier 'ToBeDefeated'
+
+2017.09.08 23:57:34.473   Exception in script: 'Out Of Range' in procedure 'GETALLCITIZEN'
+2017.09.08 23:59:36.461   Exception in script: 'Out Of Range' in procedure 'GETALLCITIZEN'
+2017.09.09 00:00:49.160   Exception in script: 'Out Of Range' in procedure 'GETALLCITIZEN'
