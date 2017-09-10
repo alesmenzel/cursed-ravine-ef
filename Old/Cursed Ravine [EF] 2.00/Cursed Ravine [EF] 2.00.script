@@ -1,0 +1,410 @@
+var aPlayer, aUnitID, aHouseID: Integer;
+var aText, LOGS_send: AnsiString;
+
+// SCHOOLHOUSE ☢☢☢
+type aBuildings = record
+	Schools: array of Integer;
+	Markets: array of Integer;
+end;
+type OMG = record
+	Buildings: aBuildings;
+	TowersCount: Byte;
+end;
+var PLAYER: array of OMG;
+
+procedure Recruits(var aPlayer: Integer);
+var i: Integer;
+begin			
+	for i := 0 to Length(PLAYER[aPlayer].Buildings.Schools) - 1 do
+		if States.HouseRepair(PLAYER[aPlayer].Buildings.Schools[i]) 
+		and (States.HouseResourceAmount(PLAYER[aPlayer].Buildings.Schools[i], 7) > 0) and (States.HouseSchoolQueue(PLAYER[aPlayer].Buildings.Schools[i], 0) = - 1) then
+			Actions.HouseSchoolQueueAdd(PLAYER[aPlayer].Buildings.Schools[i], 13, 1);
+end;
+
+procedure AddHouse(aHouse: Integer; var Houses: array of Integer);
+begin
+	SetLength(Houses, Length(Houses) + 1);
+	Houses[High(Houses)] := aHouse;
+end;
+
+procedure RemoveHouse(aHouse: Integer; var Houses: array of Integer);
+var i: Integer;
+begin
+	for i := 0 to Length(Houses) - 1 do if (Houses[i] = aHouse) then break;
+	Houses[i] := Houses[High(Houses)];
+	SetLength(Houses, Length(Houses) - 1);
+end;
+
+procedure OnHouseBuilt(aHouse: Integer);
+begin
+	if not States.PlayerIsAI(States.HouseOwner(aHouse)) then begin
+		if States.HouseType(aHouse) = 13 then AddHouse(aHouse, PLAYER[States.HouseOwner(aHouse)].Buildings.Schools)
+		else if States.HouseType(aHouse) = 29 then AddHouse(aHouse, PLAYER[States.HouseOwner(aHouse)].Buildings.Markets);
+	end;
+end;
+
+procedure OnHouseDestroyed(aHouse, aDestroyerIndex: Integer);
+begin
+	if (States.HouseIsComplete(aHouse)) AND not States.PlayerIsAI(States.HouseOwner(aHouse)) then begin
+		if States.HouseType(aHouse) = 13 then RemoveHouse(aHouse, PLAYER[States.HouseOwner(aHouse)].Buildings.Schools)
+		else if States.HouseType(aHouse) = 29 then RemoveHouse(aHouse, PLAYER[States.HouseOwner(aHouse)].Buildings.Markets);
+	end;
+end;
+
+// TRADING ☢☢☢
+procedure TradeStuffLU(TPlayer, SPlayer, SStuff, TXstore, TYstore: Integer; Tinfo: AnsiString);
+begin
+	aHouseID := States.HouseAt(TXstore,TYstore); // 1st Store
+	if States.HouseResourceAmount(aHouseID, SStuff) < 5 then // Stop the script if there is no stuff.
+	Exit;
+	 	if (States.HouseOwner((aHouseID)) = TPlayer)
+		and (States.GameTime mod 100 = 0) then
+			begin
+				Actions.HouseTakeWaresFrom(aHouseID, SStuff, 1); // aHouseID aType aCount
+				Actions.OverlayTextSet(TPlayer, Tinfo);
+				Actions.GiveWares(SPlayer, SStuff, 1); // aPlayer aType aCount
+			end;
+end;
+
+procedure LoopPlayer(aPlayer: Integer);
+var aStuff1, aPlayer1, aXstore1, aYstore1, aXLine1, aXLine2, aYLine1, aYLine2, aYLine3, aYLine4, aXMarketStore, aYMarketStore, aXMarketStore2, aYMarketStore2: Integer;
+var aStuff1Type, aPlayerName1: AnsiString;
+//var PlayerName: Byte;
+
+begin
+	// Player 1, 2 --> sending stuff
+	aStuff1 := -1;
+	aPlayer1 := -1;
+	aPlayerName1 := 'noone';
+
+	if aPlayer = 0 then aXLine1 := 1;
+	if aPlayer = 0 then aXLine2 := 4;
+	if aPlayer = 0 then aYLine1 := 7;
+	if aPlayer = 0 then aYLine2 := 10;
+	if aPlayer = 0 then aYLine3 := 13;
+	if aPlayer = 0 then aYLine4 := 16;
+	if aPlayer = 0 then aXMarketStore := 3;
+	if aPlayer = 0 then aYMarketStore := 3;
+	if aPlayer = 0 then aXMarketStore2 := 3;
+	if aPlayer = 0 then aYMarketStore2 := 7;
+
+	if aPlayer = 1 then aXLine1 := 1;
+	if aPlayer = 1 then aXLine2 := 4;
+	if aPlayer = 1 then aYLine1 := 7;
+	if aPlayer = 1 then aYLine2 := 10;
+	if aPlayer = 1 then aYLine3 := 13;
+	if aPlayer = 1 then aYLine4 := 16;
+	if aPlayer = 1 then aXMarketStore := 3;
+	if aPlayer = 1 then aYMarketStore := 11;
+	if aPlayer = 1 then aXMarketStore2 := 3;
+	if aPlayer = 1 then aYMarketStore2 := 15;
+
+	if aPlayer = 2 then aXLine1 := 8;
+	if aPlayer = 2 then aXLine2 := 11;
+	if aPlayer = 2 then aYLine1 := 7;
+	if aPlayer = 2 then aYLine2 := 10;
+	if aPlayer = 2 then aYLine3 := 13;
+	if aPlayer = 2 then aYLine4 := 16;
+	if aPlayer = 2 then aXMarketStore := 7;
+	if aPlayer = 2 then aYMarketStore := 3;
+	if aPlayer = 2 then aXMarketStore2 := 7;
+	if aPlayer = 2 then aYMarketStore2 := 7;
+
+	if aPlayer = 3 then aXLine1 := 8;
+	if aPlayer = 3 then aXLine2 := 11;
+	if aPlayer = 3 then aYLine1 := 7;
+	if aPlayer = 3 then aYLine2 := 10;
+	if aPlayer = 3 then aYLine3 := 13;
+	if aPlayer = 3 then aYLine4 := 16;
+	if aPlayer = 3 then aXMarketStore := 7;
+	if aPlayer = 3 then aYMarketStore := 11;
+	if aPlayer = 3 then aXMarketStore2 := 7;
+	if aPlayer = 3 then aYMarketStore2 := 15;
+
+	if aPlayer = 4 then aXLine1 := 15;
+	if aPlayer = 4 then aXLine2 := 18;
+	if aPlayer = 4 then aYLine1 := 7;
+	if aPlayer = 4 then aYLine2 := 10;
+	if aPlayer = 4 then aYLine3 := 13;
+	if aPlayer = 4 then aYLine4 := 16;
+	if aPlayer = 4 then aXMarketStore := 11;
+	if aPlayer = 4 then aYMarketStore := 3;
+	if aPlayer = 4 then aXMarketStore2 := 11;
+	if aPlayer = 4 then aYMarketStore2 := 7;
+
+	if aPlayer = 5 then aXLine1 := 15;
+	if aPlayer = 5 then aXLine2 := 18;
+	if aPlayer = 5 then aYLine1 := 7;
+	if aPlayer = 5 then aYLine2 := 10;
+	if aPlayer = 5 then aYLine3 := 13;
+	if aPlayer = 5 then aYLine4 := 16;
+	if aPlayer = 5 then aXMarketStore := 11;
+	if aPlayer = 5 then aYMarketStore := 11;
+	if aPlayer = 5 then aXMarketStore2 := 11;
+	if aPlayer = 5 then aYMarketStore2 := 15;
+
+	if aPlayer = 6 then aXLine1 := 22;
+	if aPlayer = 6 then aXLine2 := 25;
+	if aPlayer = 6 then aYLine1 := 7;
+	if aPlayer = 6 then aYLine2 := 10;
+	if aPlayer = 6 then aYLine3 := 13;
+	if aPlayer = 6 then aYLine4 := 16;
+	if aPlayer = 6 then aXMarketStore := 15;
+	if aPlayer = 6 then aYMarketStore := 3;
+	if aPlayer = 6 then aXMarketStore2 := 15;
+	if aPlayer = 6 then aYMarketStore2 := 7;
+
+	if aPlayer = 7 then aXLine1 := 22;
+	if aPlayer = 7 then aXLine2 := 25;
+	if aPlayer = 7 then aYLine1 := 7;
+	if aPlayer = 7 then aYLine2 := 10;
+	if aPlayer = 7 then aYLine3 := 13;
+	if aPlayer = 7 then aYLine4 := 16;
+	if aPlayer = 7 then aXMarketStore := 15;
+	if aPlayer = 7 then aYMarketStore := 11;
+	if aPlayer = 7 then aXMarketStore2 := 15;
+	if aPlayer = 7 then aYMarketStore2 := 15;
+
+	if (States.HouseWareBlocked((States.HouseAt(aXMarketStore2,aYMarketStore2)),0)) = true then aPlayer1 := 0; 
+		if aPlayer1 = 0 then aPlayerName1 := States.PlayerName(aPlayer1);
+	if (States.HouseWareBlocked((States.HouseAt(aXMarketStore2,aYMarketStore2)),1)) = true then aPlayer1 := 1; 
+		if aPlayer1 = 1 then aPlayerName1 := States.PlayerName(aPlayer1);
+	if (States.HouseWareBlocked((States.HouseAt(aXMarketStore2,aYMarketStore2)),2)) = true then aPlayer1 := 2;
+		if aPlayer1 = 2 then aPlayerName1 := States.PlayerName(aPlayer1);
+	if (States.HouseWareBlocked((States.HouseAt(aXMarketStore2,aYMarketStore2)),3)) = true then aPlayer1 := 3;
+		if aPlayer1 = 3 then aPlayerName1 := States.PlayerName(aPlayer1);
+	if (States.HouseWareBlocked((States.HouseAt(aXMarketStore2,aYMarketStore2)),4)) = true then aPlayer1 := 4;
+		if aPlayer1 = 4 then aPlayerName1 := States.PlayerName(aPlayer1);
+	if (States.HouseWareBlocked((States.HouseAt(aXMarketStore2,aYMarketStore2)),5)) = true then aPlayer1 := 5;
+		if aPlayer1 = 5 then aPlayerName1 := States.PlayerName(aPlayer1);
+	if (States.HouseWareBlocked((States.HouseAt(aXMarketStore2,aYMarketStore2)),6)) = true then aPlayer1 := 6;
+		if aPlayer1 = 6 then aPlayerName1 := States.PlayerName(aPlayer1);
+	if (States.HouseWareBlocked((States.HouseAt(aXMarketStore2,aYMarketStore2)),7)) = true then aPlayer1 := 7;
+		if aPlayer1 = 7 then aPlayerName1 := States.PlayerName(aPlayer1);
+
+	if aPlayer1 = -1
+	then
+		begin
+			Actions.OverlayTextSet(aPlayer, '');
+			Exit;
+		end;
+
+	if (States.HouseWareBlocked((States.HouseAt(aXMarketStore,aYMarketStore)),0)) = true then aStuff1 := 0; 
+		if aStuff1 = 0 then aStuff1Type := States.WareTypeName(0);
+	if (States.HouseWareBlocked((States.HouseAt(aXMarketStore,aYMarketStore)),1)) = true then aStuff1 := 1; 
+		if aStuff1 = 1 then aStuff1Type := States.WareTypeName(1);
+	if (States.HouseWareBlocked((States.HouseAt(aXMarketStore,aYMarketStore)),2)) = true then aStuff1 := 2;
+		if aStuff1 = 2 then aStuff1Type := States.WareTypeName(2);
+	if (States.HouseWareBlocked((States.HouseAt(aXMarketStore,aYMarketStore)),3)) = true then aStuff1 := 3;
+		if aStuff1 = 3 then aStuff1Type := States.WareTypeName(3);
+	if (States.HouseWareBlocked((States.HouseAt(aXMarketStore,aYMarketStore)),4)) = true then aStuff1 := 4;
+		if aStuff1 = 4 then aStuff1Type := States.WareTypeName(4);
+	if (States.HouseWareBlocked((States.HouseAt(aXMarketStore,aYMarketStore)),5)) = true then aStuff1 := 5;
+		if aStuff1 = 5 then aStuff1Type := States.WareTypeName(5);
+	if (States.HouseWareBlocked((States.HouseAt(aXMarketStore,aYMarketStore)),6)) = true then aStuff1 := 6;
+		if aStuff1 = 6 then aStuff1Type := States.WareTypeName(6);
+	if (States.HouseWareBlocked((States.HouseAt(aXMarketStore,aYMarketStore)),7)) = true then aStuff1 := 7;
+		if aStuff1 = 7 then aStuff1Type := States.WareTypeName(7);
+	if (States.HouseWareBlocked((States.HouseAt(aXMarketStore,aYMarketStore)),8)) = true then aStuff1 := 8;
+		if aStuff1 = 8 then aStuff1Type := States.WareTypeName(8);
+	if (States.HouseWareBlocked((States.HouseAt(aXMarketStore,aYMarketStore)),9)) = true then aStuff1 := 9;
+		if aStuff1 = 9 then aStuff1Type := States.WareTypeName(9);
+	if (States.HouseWareBlocked((States.HouseAt(aXMarketStore,aYMarketStore)),10)) = true then aStuff1 := 10;
+		if aStuff1 = 10 then aStuff1Type := States.WareTypeName(10);
+	if (States.HouseWareBlocked((States.HouseAt(aXMarketStore,aYMarketStore)),11)) = true then aStuff1 := 11;
+		if aStuff1 = 11 then aStuff1Type := States.WareTypeName(11);
+	if (States.HouseWareBlocked((States.HouseAt(aXMarketStore,aYMarketStore)),12)) = true then aStuff1 := 12;
+		if aStuff1 = 12 then aStuff1Type := States.WareTypeName(12);
+	if (States.HouseWareBlocked((States.HouseAt(aXMarketStore,aYMarketStore)),13)) = true then aStuff1 := 13;
+		if aStuff1 = 13 then aStuff1Type := States.WareTypeName(13);
+	if (States.HouseWareBlocked((States.HouseAt(aXMarketStore,aYMarketStore)),14)) = true then aStuff1 := 14;
+		if aStuff1 = 14 then aStuff1Type := States.WareTypeName(14);
+	if (States.HouseWareBlocked((States.HouseAt(aXMarketStore,aYMarketStore)),15)) = true then aStuff1 := 15;
+		if aStuff1 = 15 then aStuff1Type := States.WareTypeName(15);
+	if (States.HouseWareBlocked((States.HouseAt(aXMarketStore,aYMarketStore)),16)) = true then aStuff1 := 16;
+		if aStuff1 = 16 then aStuff1Type := States.WareTypeName(16);
+	if (States.HouseWareBlocked((States.HouseAt(aXMarketStore,aYMarketStore)),17)) = true then aStuff1 := 17;
+		if aStuff1 = 17 then aStuff1Type := States.WareTypeName(17);
+	if (States.HouseWareBlocked((States.HouseAt(aXMarketStore,aYMarketStore)),18)) = true then aStuff1 := 18;
+		if aStuff1 = 18 then aStuff1Type := States.WareTypeName(18);
+	if (States.HouseWareBlocked((States.HouseAt(aXMarketStore,aYMarketStore)),19)) = true then aStuff1 := 19;
+		if aStuff1 = 19 then aStuff1Type := States.WareTypeName(19);
+	if (States.HouseWareBlocked((States.HouseAt(aXMarketStore,aYMarketStore)),20)) = true then aStuff1 := 20;
+		if aStuff1 = 20 then aStuff1Type := States.WareTypeName(20);
+	if (States.HouseWareBlocked((States.HouseAt(aXMarketStore,aYMarketStore)),21)) = true then aStuff1 := 21;
+		if aStuff1 = 21 then aStuff1Type := States.WareTypeName(21);
+	if (States.HouseWareBlocked((States.HouseAt(aXMarketStore,aYMarketStore)),22)) = true then aStuff1 := 22;
+		if aStuff1 = 22 then aStuff1Type := States.WareTypeName(22);
+	if (States.HouseWareBlocked((States.HouseAt(aXMarketStore,aYMarketStore)),23)) = true then aStuff1 := 23;
+		if aStuff1 = 23 then aStuff1Type := States.WareTypeName(23);
+	if (States.HouseWareBlocked((States.HouseAt(aXMarketStore,aYMarketStore)),24)) = true then aStuff1 := 24;
+		if aStuff1 = 24 then aStuff1Type := States.WareTypeName(24);
+	if (States.HouseWareBlocked((States.HouseAt(aXMarketStore,aYMarketStore)),25)) = true then aStuff1 := 25;
+		if aStuff1 = 25 then aStuff1Type := States.WareTypeName(25);
+	if (States.HouseWareBlocked((States.HouseAt(aXMarketStore,aYMarketStore)),26)) = true then aStuff1 := 26;
+		if aStuff1 = 26 then aStuff1Type := States.WareTypeName(26);
+	if (States.HouseWareBlocked((States.HouseAt(aXMarketStore,aYMarketStore)),27)) = true then aStuff1 := 27;
+		if aStuff1 = 27 then aStuff1Type := States.WareTypeName(27);
+
+	if aStuff1 = -1
+	then
+		begin
+			Actions.OverlayTextSet(aPlayer, '');
+			Exit;
+		end;
+
+	if aPlayer = 0 then aXstore1 := 41;
+	if aPlayer = 0 then aYstore1 := 66;
+
+	if aPlayer = 1 then aXstore1 := 48;
+	if aPlayer = 1 then aYstore1 := 108;
+
+	if aPlayer = 2 then aXstore1 := 47;
+	if aPlayer = 2 then aYstore1 := 159;
+
+	if aPlayer = 3 then aXstore1 := 54;
+	if aPlayer = 3 then aYstore1 := 199;
+
+	if aPlayer = 4 then aXstore1 := 196;
+	if aPlayer = 4 then aYstore1 := 67;
+
+	if aPlayer = 5 then aXstore1 := 184;
+	if aPlayer = 5 then aYstore1 := 104;
+
+	if aPlayer = 6 then aXstore1 := 198;
+	if aPlayer = 6 then aYstore1 := 151;
+
+	if aPlayer = 7 then aXstore1 := 211;
+	if aPlayer = 7 then aYstore1 := 188;
+
+	TradeStuffLU(aPlayer,aPlayer1,aStuff1,aXstore1,aYstore1,'1x ' + aStuff1Type + ' /15 s --> ' + aPlayerName1 + '. (from 1st Store).');
+
+end;
+
+procedure GetHousesToBeDefeated(aPlayer: Integer);
+begin
+	if States.StatHouseMultipleTypesCount(aPlayer,[11, 21]) = 2 then
+		Actions.PlayerDefeat(aPlayer);
+end;
+
+procedure GetAllCitizen(aPlayer: Integer);
+var AllCitizens, MilitiaX, MilitiaY, MilitiaGroupID, MilitiaDirX, MilitiaDirY, i: Integer;
+var AllCitizensID: Array of Integer;
+var groupId: Integer;
+begin
+	if aPlayer = 0 then MilitiaX := 41;
+	if aPlayer = 0 then MilitiaY := 66;
+	if aPlayer = 0 then MilitiaDirX := 220;
+	if aPlayer = 0 then MilitiaDirY := 135;
+	if aPlayer = 1 then MilitiaX := 48;
+	if aPlayer = 1 then MilitiaY := 108;
+	if aPlayer = 1 then MilitiaDirX := 220;
+	if aPlayer = 1 then MilitiaDirY := 135;
+
+	if aPlayer = 2 then MilitiaX := 47;
+	if aPlayer = 2 then MilitiaY := 159;
+	if aPlayer = 2 then MilitiaDirX := 223;
+	if aPlayer = 2 then MilitiaDirY := 123;
+	if aPlayer = 3 then MilitiaX := 54;
+	if aPlayer = 3 then MilitiaY := 199;
+	if aPlayer = 3 then MilitiaDirX := 223;
+	if aPlayer = 3 then MilitiaDirY := 123;
+
+	if aPlayer = 4 then MilitiaX := 196;
+	if aPlayer = 4 then MilitiaY := 67;
+	if aPlayer = 4 then MilitiaDirX := 35;
+	if aPlayer = 4 then MilitiaDirY := 138;
+	if aPlayer = 5 then MilitiaX := 184;
+	if aPlayer = 5 then MilitiaY := 104;
+	if aPlayer = 5 then MilitiaDirX := 35;
+	if aPlayer = 5 then MilitiaDirY := 138;
+
+	if aPlayer = 6 then MilitiaX := 198;
+	if aPlayer = 6 then MilitiaY := 151;
+	if aPlayer = 6 then MilitiaDirX := 33;
+	if aPlayer = 6 then MilitiaDirY := 127;
+	if aPlayer = 7 then MilitiaX := 211;
+	if aPlayer = 7 then MilitiaY := 188;
+	if aPlayer = 7 then MilitiaDirX := 33;
+	if aPlayer = 7 then MilitiaDirY := 127;
+
+	AllCitizens := States.StatCitizenCount(aPlayer);
+	AllCitizensID := States.PlayerGetAllUnits(aPlayer);
+	MilitiaGroupID := States.ClosestGroup(aPlayer,41,66,0);
+	
+	if States.GameTime > States.PeaceTime then
+	begin
+	for i := 0 to Length(AllCitizensID) - 1 do
+		begin
+			Actions.UnitKill(AllCitizensID[i],true);
+		end;
+	groupId := Actions.GiveGroup(aPlayer,14,MilitiaX,MilitiaY,4,AllCitizens,10);
+	Actions.ShowMsg(aPlayer,'You are dead :P but your citizens as militias will try to kill your enemis.');
+	Actions.GroupOrderWalk(groupId,MilitiaDirX,MilitiaDirY,4);
+	end;
+end;
+
+procedure OnMissionStart;
+var aPlayer, i: Integer;
+aiHouses: array of Integer;
+text: String;
+begin
+	SetLength(PLAYER, States.LocationCount);
+	for aPlayer := 0 to States.LocationCount - 5 do if States.PlayerEnabled(aPlayer) then begin
+		aiHouses := States.PlayerGetAllHouses(aPlayer);
+		for i := 0 to Length(aiHouses) - 1 do begin
+			if (States.HouseType(aiHouses[i]) = 13) and States.HouseIsComplete(aiHouses[i]) then AddHouse(aiHouses[i], PLAYER[aPlayer].Buildings.Schools)
+			else if (States.HouseType(aiHouses[i]) = 29) and States.HouseIsComplete(aiHouses[i]) then AddHouse(aiHouses[i], PLAYER[aPlayer].Buildings.Markets)
+		end;
+	end;
+end;
+
+procedure OnTick;
+var i: Integer;
+var AllPlayers: Array[0..7] of Integer;
+begin
+	if (States.GameTime mod 300 = 0) then
+		begin
+			for i := 0 to 7 do
+				LoopPlayer(i);
+		end;
+	if (States.GameTime mod 10 = 0) then
+		begin
+			for i := 0 to 7 do
+			GetHousesToBeDefeated(i);
+		end;
+	if (States.GameTime mod 10 = 0) then
+	if States.PlayerEnabled(aPlayer) then
+		if not States.PlayerIsAI(aPlayer) then Recruits(aPlayer);
+end;
+
+// DEFEAT ☢☢☢☢☢☢☢☢☢☢☢☢☢☢☢☢☢☢☢☢☢☢☢☢☢☢☢☢☢☢☢☢☢☢☢☢☢☢☢☢☢
+// Specifikace procedur a proměnných.
+procedure ArrayLoop(allhouses: Array of Integer);
+var
+	i: Integer;
+
+// Destroy all Houses.
+begin
+	for i := 0 to Length(allhouses) - 1 do
+	begin
+		Actions.HouseDestroy(allhouses[i], False);
+	end;
+end;
+
+// After defeated of player create list o Houses IDs.
+procedure OnPlayerDefeated(aPlayer: Integer);
+begin
+	begin
+		ArrayLoop(States.PlayerGetAllHouses(aPlayer));
+	end;
+	begin
+		GetAllCitizen(aPlayer);
+	end;
+end;
+
+// ODKRYTÍ MAPY PO VÝHŘE
+procedure OnPlayerVictory (aPlayer: Integer);
+begin
+	Actions.FogRevealAll(aPlayer);
+end;
