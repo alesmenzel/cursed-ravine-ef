@@ -1,0 +1,263 @@
+// SCHOOLHOUSE ☢☢☢
+type aBuildings = record
+	Schools: array of Integer;
+	Storehouse: array of Integer;
+end;
+type aPLAYER = record
+	Buildings: aBuildings;
+end;
+var PLAYER: array of aPLAYER;
+
+procedure Recruits(var aPlayer: Integer);
+var i: Integer;
+begin			
+	for i := 0 to Length(PLAYER[aPlayer].Buildings.Schools) - 1 do
+		if States.HouseRepair(PLAYER[aPlayer].Buildings.Schools[i]) 
+		and (States.HouseResourceAmount(PLAYER[aPlayer].Buildings.Schools[i], 7) > 0) and (States.HouseSchoolQueue(PLAYER[aPlayer].Buildings.Schools[i], 0) = - 1) then
+			Actions.HouseSchoolQueueAdd(PLAYER[aPlayer].Buildings.Schools[i], 13, 1);
+end;
+
+procedure AddHouse(aHouse: Integer; var Houses: array of Integer);
+begin
+	SetLength(Houses, Length(Houses) + 1);
+	Houses[High(Houses)] := aHouse;
+end;
+
+procedure RemoveHouse(aHouse: Integer; var Houses: array of Integer);
+var i: Integer;
+begin
+	for i := 0 to Length(Houses) - 1 do if (Houses[i] = aHouse) then break;
+	Houses[i] := Houses[High(Houses)];
+	SetLength(Houses, Length(Houses) - 1);
+end;
+
+procedure OnHouseBuilt(aHouse: Integer);
+begin
+	if not States.PlayerIsAI(States.HouseOwner(aHouse)) then begin
+		if States.HouseType(aHouse) = 13 then AddHouse(aHouse, PLAYER[States.HouseOwner(aHouse)].Buildings.Schools)
+	end;
+end;
+
+procedure OnHouseDestroyed(aHouse, aDestroyerIndex: Integer);
+begin
+	if (States.HouseIsComplete(aHouse)) AND not States.PlayerIsAI(States.HouseOwner(aHouse)) then begin
+		if States.HouseType(aHouse) = 13 then RemoveHouse(aHouse, PLAYER[States.HouseOwner(aHouse)].Buildings.Schools)
+	end;
+end;
+
+// Trade ☢☢☢
+
+type aTRADER = record
+	ReceiverId: Integer;
+	StuffId: Integer;
+end;
+var TRADER: array of aTRADER;
+
+// TRADE ☢☢☢
+
+procedure Trade(aPlayer, amount: Integer);
+var senderStoreHouseId, receiverId, StuffId: Integer;
+begin
+	receiverId := TRADER[aPlayer].ReceiverId;
+	StuffId := TRADER[aPlayer].StuffId;
+
+	if ((receiverId <> -1) 
+		and (StuffId <> -1)
+		and States.PlayerEnabled(receiverId)
+		and not States.PlayerIsAI(receiverId)) then
+	begin
+		senderStoreHouseId := PLAYER[aPlayer].Buildings.Storehouse[0];
+
+		// Run only if the sender has any resources
+		if States.HouseResourceAmount(senderStoreHouseId, StuffId) >= amount then
+		begin
+			Actions.HouseTakeWaresFrom(senderStoreHouseId, StuffId, amount);
+			Actions.GiveWares(receiverId, StuffId, amount);
+		end;
+	end;
+end;
+
+
+procedure FindPlayer(aPlayer: Integer);
+var i, StoreHouseId: Integer;
+begin
+	StoreHouseId := PLAYER[aPlayer].Buildings.Storehouse[2];
+
+	for i := 0 to 7 do
+		if States.HouseWareBlocked(StoreHouseId, i) then
+		begin 
+			Actions.log('Player found, idx:' + inttostr(i));
+			TRADER[aPlayer].ReceiverId := i;
+			exit;
+		end;
+
+	TRADER[aPlayer].ReceiverId := -1;
+end;
+
+procedure FindStuff(aPlayer: Integer);
+var i, StoreHouseId: Integer;
+begin
+	StoreHouseId := PLAYER[aPlayer].Buildings.Storehouse[1];
+
+	for i := 0 to 27 do
+		if States.HouseWareBlocked(StoreHouseId, i) then
+		begin 
+			Actions.log('Stuff found, idx:' + inttostr(i));
+			TRADER[aPlayer].StuffId := i;
+			exit;
+		end;
+
+	TRADER[aPlayer].StuffId := -1;
+end;
+
+
+procedure DisplayMessage(aPlayer: Integer);
+var	PlayerName, StuffName: AnsiString;
+var text: AnsiString;
+begin
+	text := '';
+	if ((TRADER[aPlayer].ReceiverId <> -1) 
+		and (TRADER[aPlayer].StuffId <> -1)
+		and States.PlayerEnabled(TRADER[aPlayer].ReceiverId)
+		and not States.PlayerIsAI(TRADER[aPlayer].ReceiverId)) then
+	begin
+		PlayerName := States.PlayerName(TRADER[aPlayer].ReceiverId);
+		StuffName := States.WareTypeName(TRADER[aPlayer].StuffId);
+		text := '1x ' + StuffName + ' --> ' + PlayerName + '. (from 1st Store).';
+	end;
+
+	Actions.OverlayTextSet(aPlayer, text);
+end;
+
+// SCHOOLHOUSE + TRADE ☢☢☢
+
+procedure OnMissionStart;
+var aPlayer, i: Integer;
+aiHouses: array of Integer;
+begin
+	SetLength(PLAYER, States.LocationCount);
+	SetLength(TRADER, States.LocationCount);
+	for aPlayer := 0 to States.LocationCount - 1 do if States.PlayerEnabled(aPlayer) then 
+	begin
+		aiHouses := States.PlayerGetAllHouses(aPlayer);
+		TRADER[aPlayer].ReceiverId := -1;
+		TRADER[aPlayer].StuffId := -1;
+
+		for i := 0 to Length(aiHouses) - 1 do 
+		begin
+			if (States.HouseType(aiHouses[i]) = 13) and States.HouseIsComplete(aiHouses[i]) then 
+				AddHouse(aiHouses[i], PLAYER[aPlayer].Buildings.Schools);
+
+			if (States.HouseType(aiHouses[i]) = 11) and States.HouseIsComplete(aiHouses[i]) then 
+				AddHouse(aiHouses[i], PLAYER[aPlayer].Buildings.Storehouse);
+		end;
+	end;
+end;
+
+// DEFEAT ☢☢☢
+
+procedure GetAllCitizen(aPlayer: Integer);
+var AllCitizens, MilitiaX, MilitiaY, i, h: Integer;
+var AllUnitsID, allhouses: Array of Integer;
+begin
+	
+	if (States.StatCitizenCount(aPlayer) = 0) then
+		Exit;
+
+	if (States.StatHouseMultipleTypesCount(aPlayer,[11, 21]) < 3) then
+	begin
+		if aPlayer = 0 then MilitiaX := 41;
+		if aPlayer = 0 then MilitiaY := 66;
+
+		if aPlayer = 1 then MilitiaX := 48;
+		if aPlayer = 1 then MilitiaY := 108;
+
+		if aPlayer = 2 then MilitiaX := 47;
+		if aPlayer = 2 then MilitiaY := 159;
+
+		if aPlayer = 3 then MilitiaX := 54;
+		if aPlayer = 3 then MilitiaY := 199;
+
+		if aPlayer = 4 then MilitiaX := 196;
+		if aPlayer = 4 then MilitiaY := 67;
+		
+		if aPlayer = 5 then MilitiaX := 184;
+		if aPlayer = 5 then MilitiaY := 104;
+
+		if aPlayer = 6 then MilitiaX := 198;
+		if aPlayer = 6 then MilitiaY := 151;
+		
+		if aPlayer = 7 then MilitiaX := 211;
+		if aPlayer = 7 then MilitiaY := 188;
+
+		AllCitizens := States.StatCitizenCount(aPlayer);
+		AllUnitsID := States.PlayerGetAllUnits(aPlayer);
+		allhouses := (States.PlayerGetAllHouses(aPlayer));
+
+		if States.GameTime > States.PeaceTime then
+		
+		begin
+			for i := 0 to Length(AllUnitsID) - 1 do
+			begin
+				Actions.UnitKill(AllUnitsID[i], true);
+			end;
+
+			Actions.GiveGroup(aPlayer, 14,MilitiaX,MilitiaY,4,AllCitizens,10);
+			Actions.ShowMsg(aPlayer,'You are dead :P but your citizens as militias will try to kill your enemies.');
+		end;
+		
+		begin
+			for h := 2 to Length(allhouses) - 1 do
+			begin
+				Actions.HouseDestroy(allhouses[h], False); // Destroy all Houses.
+			end;
+		end;
+	end;
+end;
+
+procedure OnPlayerVictory (aPlayer: Integer); // Unhide all map after win.
+begin
+	Actions.FogRevealAll(aPlayer);
+end;
+
+procedure ToBeDefeated(aPlayer: Integer);
+begin
+	if States.StatUnitCount(aPlayer) < 1 then
+		Actions.PlayerDefeat(aPlayer);
+end;
+
+// WIN ☢☢☢
+
+{procedure ToBeWin(aPlayer: Integer);
+begin
+	if States.StatUnitCount(aPlayer) < 1 then
+		Actions.PlayerDefeat(aPlayer);
+end;}
+
+
+// GENERAL ☢☢☢
+
+procedure OnTick;
+var aPlayer: Integer;
+begin
+	aPlayer := States.GameTime mod States.LocationCount;
+
+	if States.PlayerEnabled(aPlayer) then
+		if not States.PlayerIsAI(aPlayer) then 
+		begin
+			Recruits(aPlayer);
+			ToBeDefeated(aPlayer);
+			//ToBeWin(aPlayer);
+			GetAllCitizen(aPlayer);
+
+			if (States.GameTime mod 96 = aPlayer) then
+			begin
+				Trade(aPlayer, 1);
+			end;
+
+			FindPlayer(aPlayer);
+			FindStuff(aPlayer);
+			DisplayMessage(aPlayer);
+		end;
+end;
+
